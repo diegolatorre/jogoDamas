@@ -1,6 +1,19 @@
 function onClick(ev) {
+
     var mx = ev.x;
     var my = ev.y;
+
+    for (var i = 0; i < 16; i++) {
+        if (verificaPeca(mx, my, i)) {
+            jogada.peca = i;
+            jogada.ativo = true;
+            pecas[i].selected = true;
+            //mostrarJogadasBrancas(pecas[i]);
+        } else {
+            pecas[i].selected = false;
+        }
+    }
+
 
     for (let j = 0; j < 8; j++) {
         for (let i = 0; i < 8; i++) {
@@ -8,41 +21,34 @@ function onClick(ev) {
         }
     }
 
-    //PECA BRANCAS
-    for (var i = 0; i < 8; i++) {
-        let peca = brancas[i];
-        if (mx <= peca.x + peca.r && mx >= peca.x - peca.r && my <= peca.y + peca.r && my >= peca.y - peca.r) {
-            peca.selected = 1;
-            mostrarJogadasBrancas(peca);
-            pecaSelected = peca;
-        } else {
 
+    for (let j = 0; j <= 8; j++) {
+        for (let i = 0; i < 8; i++) {
+            if (verificaCasa(mx, my, i, j) && typeof tabuleiro[j][i].peca == 'undefined' && jogada.ativo) {
+                tabuleiro[j][i].selected = true;
+                jogada.casa.j = j;
+                jogada.casa.i = i;
+                moverPeca();
+            } else {
+                tabuleiro[j][i].selected = false;
+            }
         }
     }
 
-    //PECA PRETAS
-    for (var i = 0; i < 8; i++) {
-        let peca = pretas[i];
-        if (mx <= peca.x + peca.r && mx >= peca.x - peca.r && my <= peca.y + peca.r && my >= peca.y - peca.r) {
-            peca.selected = 1;
-            mostrarJogadasPretas(peca);
-        } else {
+}
 
-        }
+function verificaPeca(mx, my, i) {
+    if (mx <= pecas[i].x + pecas[i].r && mx >= pecas[i].x - pecas[i].r && my <= pecas[i].y + pecas[i].r && my >= pecas[i].y - pecas[i].r) {
+        return true;
+    } else {
+        return false;
     }
 }
 
-function verificaCasa(mx, my) {
-    for (let j = 0; j <= 8; j++) {
-        for (let i = 0; i < 8; i++) {
-            let rect = tabuleiro[j][i];
-            if (mx > rect.x && mx < rect.x + rect.w
-                && my > rect.y && my < rect.y + rect.h) {
-                //moverPeca(rect, pecaSelected);
-                return rect;
-            } else {
-
-            }
-        }
+function verificaCasa(mx, my, i, j) {
+    if (mx > tabuleiro[j][i].x && mx < tabuleiro[j][i].x + tabuleiro[j][i].w && my > tabuleiro[j][i].y && my < tabuleiro[j][i].y + tabuleiro[j][i].h) {
+        return true;
+    } else {
+        return false;
     }
 }

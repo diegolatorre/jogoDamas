@@ -1,4 +1,4 @@
-function Casa(x, y, linha, coluna) {
+function Casa(x, y, linha, coluna, peca) {
     this.x = x;
     this.y = y;
     this.h = 50;
@@ -6,6 +6,8 @@ function Casa(x, y, linha, coluna) {
     this.linha = linha;
     this.coluna = coluna;
     this.cor = 'brown';
+    this.peca = peca;
+    this.selected = false;
 }
 
 function newCasa(x, y, j, k) {
@@ -13,7 +15,11 @@ function newCasa(x, y, j, k) {
     tabuleiro[j].push(casa);
 }
 
-function drawCasa(ctx, casa) {
-    ctx.fillStyle = casa.cor;
-    ctx.fillRect(casa.x, casa.y, casa.h, casa.w);
+function drawCasa(ctx, j, i) {
+    if (tabuleiro[j][i].selected) {
+        ctx.fillStyle = 'blue';
+    } else {
+        ctx.fillStyle = tabuleiro[j][i].cor;
+    }
+    ctx.fillRect(tabuleiro[j][i].x, tabuleiro[j][i].y, tabuleiro[j][i].h, tabuleiro[j][i].w);
 }
