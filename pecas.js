@@ -32,14 +32,25 @@ function drawPeca(ctx, i) {
 
 function moverPeca() {
 
+    //limpando a selecao de peca e casa
     pecas[jogada.peca].selected = false;
     tabuleiro[jogada.casa.c][jogada.casa.l].selected = false;
+
+    //movendo a peca no tabuleiro
     pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 25;
     pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 25;
+
+    //limpando na casa antiga o valor da peca
+    tabuleiro[pecas[jogada.peca].casa.c][pecas[jogada.peca].casa.l].peca = null;
+
+    //colocando o valor da nova casa na peca
     pecas[jogada.peca].casa.c = jogada.casa.c;
     pecas[jogada.peca].casa.l = jogada.casa.l;
-    tabuleiro[jogada.casa.c][jogada.casa.l].casa = pecas[pecas[jogada.peca]];
 
+    //colocando o valor da peca na nova casa
+    tabuleiro[jogada.casa.c][jogada.casa.l].peca = jogada.peca;
+
+    //limpando a jogada
     jogada.peca = null;
     jogada.casa.c = null;
     jogada.casa.l = null;

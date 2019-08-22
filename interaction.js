@@ -8,6 +8,7 @@ function onClick(ev) {
             jogada.peca = i;
             jogada.ativo = true;
             pecas[i].selected = true;
+            console.log(i);
             //mostrarJogadasBrancas(pecas[i]);
         } else {
             pecas[i].selected = false;
