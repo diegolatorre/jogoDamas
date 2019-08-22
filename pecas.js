@@ -59,8 +59,10 @@ function moverPeca() {
 
     //altera quem é a vez de jogar
     if (jogada.jogador == 'white') {
-        jogada.jogador = 'black'
+        jogada.jogador = 'black';
+        document.getElementById("jogador").innerHTML = 'black';
     } else {
         jogada.jogador = 'white';
+        document.getElementById("jogador").innerHTML = 'white';
     }
 }

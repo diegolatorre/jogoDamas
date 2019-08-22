@@ -24,19 +24,26 @@ function onClick(ev) {
         }
     }
 
-
-    for (let c = 0; c <= 8; c++) {
-        for (let l = 0; l < 8; l++) {
-            if (verificaCasa(mx, my, c, l) && !tabuleiro[c][l].peca && jogada.ativo) {
-                tabuleiro[c][l].selected = true;
-                jogada.casa.c = c;
-                jogada.casa.l = l;
-                moverPeca();
-            } else {
-                tabuleiro[c][l].selected = false;
+    if (jogada.ativo) {
+        for (let c = 0; c <= 8; c++) {
+            for (let l = 0; l < 8; l++) {
+                if (verificaCasa(mx, my, c, l) && !tabuleiro[c][l].peca) {
+                    tabuleiro[c][l].selected = true;
+                    jogada.casa.c = c;
+                    jogada.casa.l = l;
+                    if(pecas[jogada.peca].cor == 'white'){
+                        validaBranca();
+                    } else {
+                        validaPreta();
+                    }
+                    //moverPeca();
+                } else {
+                    tabuleiro[c][l].selected = false;
+                }
             }
         }
     }
+
 }
 
 function verificaPeca(mx, my, i) {
