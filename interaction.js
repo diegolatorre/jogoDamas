@@ -15,26 +15,25 @@ function onClick(ev) {
     }
 
 
-    for (let j = 0; j < 8; j++) {
-        for (let i = 0; i < 8; i++) {
-            tabuleiro[j][i].cor = 'brown';
+    for (let c = 0; c < 8; c++) {
+        for (let l = 0; l < 8; l++) {
+            tabuleiro[c][l].cor = 'brown';
         }
     }
 
 
-    for (let j = 0; j <= 8; j++) {
-        for (let i = 0; i < 8; i++) {
-            if (verificaCasa(mx, my, i, j) && typeof tabuleiro[j][i].peca == 'undefined' && jogada.ativo) {
-                tabuleiro[j][i].selected = true;
-                jogada.casa.j = j;
-                jogada.casa.i = i;
+    for (let c = 0; c <= 8; c++) {
+        for (let l = 0; l < 8; l++) {
+            if (verificaCasa(mx, my, c, l) && !tabuleiro[c][l].peca && jogada.ativo) {
+                tabuleiro[c][l].selected = true;
+                jogada.casa.c = c;
+                jogada.casa.l = l;
                 moverPeca();
             } else {
-                tabuleiro[j][i].selected = false;
+                tabuleiro[c][l].selected = false;
             }
         }
     }
-
 }
 
 function verificaPeca(mx, my, i) {
@@ -45,8 +44,8 @@ function verificaPeca(mx, my, i) {
     }
 }
 
-function verificaCasa(mx, my, i, j) {
-    if (mx > tabuleiro[j][i].x && mx < tabuleiro[j][i].x + tabuleiro[j][i].w && my > tabuleiro[j][i].y && my < tabuleiro[j][i].y + tabuleiro[j][i].h) {
+function verificaCasa(mx, my, c, l) {
+    if (mx > tabuleiro[c][l].x && mx < tabuleiro[c][l].x + tabuleiro[c][l].w && my > tabuleiro[c][l].y && my < tabuleiro[c][l].y + tabuleiro[c][l].h) {
         return true;
     } else {
         return false;

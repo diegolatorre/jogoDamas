@@ -5,7 +5,7 @@ var trocaCor = 0;
 var brancas = [];
 var pretas = [];
 var pecas = [];
-var jogada = { peca: null, casa: { j: null, i: null }, ativo: false }
+var jogada = { peca: null, casa: { c: null, l: null }, ativo: false }
 
 function init() {
 
@@ -53,25 +53,25 @@ function criaPecas() {
 }
 
 function criaCasas() {
-    for (let i = 0; i <= 8; i++) {
-        let linha = [];
-        tabuleiro.push(linha);
+    for (let c = 0; c <= 8; c++) {
+        let coluna = [];
+        tabuleiro.push(coluna);
     }
 
-    for (let j = 0; j <= 8; j++) {
+    for (let c = 0; c <= 8; c++) {
         y = 0;
         x += 60;
-        for (let i = 0; i < 8; i++) {
+        for (let l = 0; l < 8; l++) {
             y += 60;
-            newCasa(x, y, j, i);
+            newCasa(x, y, c, l);
         }
     }
 }
 
 function desenhaCasas(ctx) {
-    for (let j = 0; j < 8; j++) {
-        for (let i = 0; i < 8; i++) {
-            drawCasa(ctx, j, i);
+    for (let c = 0; c < 8; c++) {
+        for (let l = 0; l < 8; l++) {
+            drawCasa(ctx, c, l);
         }
     }
 }

@@ -1,16 +1,16 @@
-function Peca(x, y, j, i, cor) {
+function Peca(x, y, c, l, cor) {
     this.x = x;
     this.y = y;
     this.r = 15;
     this.selected = false;
-    this.casa = { j: j, i: i };
+    this.casa = { c: c, l: l };
     this.cor = cor;
 }
 
-function newPeca(j, i, cor) {
-    var peca = new Peca(tabuleiro[j][i].x + 25, tabuleiro[j][i].y + 25, j, i, cor);
+function newPeca(c, l, cor) {
+    var peca = new Peca(tabuleiro[c][l].x + 25, tabuleiro[c][l].y + 25, c, l, cor);
     pecas.push(peca);
-    tabuleiro[j][i].peca = pecas.indexOf(peca);
+    tabuleiro[c][l].peca = pecas.indexOf(peca);
 }
 
 function drawPeca(ctx, i) {
@@ -33,15 +33,15 @@ function drawPeca(ctx, i) {
 function moverPeca() {
 
     pecas[jogada.peca].selected = false;
-    tabuleiro[jogada.casa.j][jogada.casa.i].selected = false;
-    pecas[jogada.peca].x = tabuleiro[jogada.casa.j][jogada.casa.i].x + 25;
-    pecas[jogada.peca].y = tabuleiro[jogada.casa.j][jogada.casa.i].y + 25;
-    pecas[jogada.peca].casa.j = jogada.casa.j;
-    pecas[jogada.peca].casa.i = jogada.casa.i;
-    tabuleiro[jogada.casa.j][jogada.casa.i].casa = pecas[pecas[jogada.peca]];
+    tabuleiro[jogada.casa.c][jogada.casa.l].selected = false;
+    pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 25;
+    pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 25;
+    pecas[jogada.peca].casa.c = jogada.casa.c;
+    pecas[jogada.peca].casa.l = jogada.casa.l;
+    tabuleiro[jogada.casa.c][jogada.casa.l].casa = pecas[pecas[jogada.peca]];
 
     jogada.peca = null;
-    jogada.casa.j = null;
-    jogada.casa.i = null;
+    jogada.casa.c = null;
+    jogada.casa.l = null;
     jogada.ativo = false;
 }
