@@ -5,11 +5,13 @@ function onClick(ev) {
 
     for (var i = 0; i < 16; i++) {
         if (verificaPeca(mx, my, i)) {
-            jogada.peca = i;
-            jogada.ativo = true;
-            pecas[i].selected = true;
-            console.log(i);
-            //mostrarJogadasBrancas(pecas[i]);
+            if (pecas[i].cor == jogada.jogador) {
+                jogada.peca = i;
+                jogada.ativo = true;
+                pecas[i].selected = true;
+                console.log(i);
+                //mostrarJogadas(i);
+            }
         } else {
             pecas[i].selected = false;
         }

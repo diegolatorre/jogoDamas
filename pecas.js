@@ -5,6 +5,7 @@ function Peca(x, y, c, l, cor) {
     this.selected = false;
     this.casa = { c: c, l: l };
     this.cor = cor;
+    this.superDama = false;
 }
 
 function newPeca(c, l, cor) {
@@ -55,4 +56,11 @@ function moverPeca() {
     jogada.casa.c = null;
     jogada.casa.l = null;
     jogada.ativo = false;
+
+    //altera quem é a vez de jogar
+    if (jogada.jogador == 'white') {
+        jogada.jogador = 'black'
+    } else {
+        jogada.jogador = 'white';
+    }
 }

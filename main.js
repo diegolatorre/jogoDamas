@@ -5,7 +5,7 @@ var trocaCor = 0;
 var brancas = [];
 var pretas = [];
 var pecas = [];
-var jogada = { peca: null, casa: { c: null, l: null }, ativo: false }
+var jogada = { peca: null, casa: { c: null, l: null }, ativo: false, jogador: null }
 
 function init() {
 
@@ -17,6 +17,8 @@ function init() {
 
     criaCasas();
     criaPecas();
+
+    jogada.jogador = 'white';
 
     setInterval(draw, 1000 / 60);
 }
@@ -82,44 +84,6 @@ function desenhaPecas(ctx) {
     }
 }
 
-function mostrarJogadasPretas(peca) {
-    var diagonalDireita = { linha: peca.casa.linha + 1, coluna: peca.casa.coluna - 1 };
-    var diagonalEsquerda = { linha: peca.casa.linha + 1, coluna: peca.casa.coluna + 1 };
-    //console.log(`dEsquerdaLinha ${diagonalEsquerda.linha} dEsquerdaColuna ${diagonalEsquerda.coluna}`);
-    //console.log(`dDireitaLinha ${diagonalDireita.linha} dDireitaColuna ${diagonalDireita.coluna}`);
-
-    if (diagonalDireita.linha < 8 && diagonalDireita.coluna >= 0) {
-        console.log('Jogada a direita');
-        if (typeof tabuleiro[diagonalDireita.coluna][diagonalDireita.linha].peca === "undefined") {
-            tabuleiro[diagonalDireita.coluna][diagonalDireita.linha].cor = 'blue';
-        }
-    }
-
-    if (diagonalEsquerda.linha < 8 && diagonalEsquerda.coluna < 8) {
-        console.log('Jogada a esquerda');
-        if (typeof tabuleiro[diagonalEsquerda.coluna][diagonalEsquerda.linha].peca === "undefined") {
-            tabuleiro[diagonalEsquerda.coluna][diagonalEsquerda.linha].cor = 'blue';
-        }
-    }
-}
-
-function mostrarJogadasBrancas(peca) {
-    var diagonalDireita = { linha: peca.casa.linha - 1, coluna: peca.casa.coluna + 1 };
-    var diagonalEsquerda = { linha: peca.casa.linha - 1, coluna: peca.casa.coluna - 1 };
-    //console.log(`dEsquerdaLinha ${diagonalEsquerda.linha} dEsquerdaColuna ${diagonalEsquerda.coluna}`);
-    //console.log(`dDireitaLinha ${diagonalDireita.linha} dDireitaColuna ${diagonalDireita.coluna}`);
-
-    if (diagonalDireita.linha >= 0 && diagonalDireita.coluna < 8) {
-        console.log('Jogada a direita');
-        if (typeof tabuleiro[diagonalDireita.coluna][diagonalDireita.linha].peca === "undefined") {
-            tabuleiro[diagonalDireita.coluna][diagonalDireita.linha].cor = 'blue';
-        }
-    }
-
-    if (diagonalEsquerda.linha >= 0 && diagonalEsquerda.coluna >= 0) {
-        console.log('Jogada a esquerda');
-        if (typeof tabuleiro[diagonalEsquerda.coluna][diagonalEsquerda.linha].peca === "undefined") {
-            tabuleiro[diagonalEsquerda.coluna][diagonalEsquerda.linha].cor = 'blue';
-        }
-    }
+function mostrarJogadasPretas(i) {
+    
 }
