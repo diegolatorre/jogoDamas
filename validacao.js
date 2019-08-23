@@ -13,7 +13,6 @@ function validaBranca() {
     } else {
         document.getElementById("jogador").innerHTML = 'Jogada nao permitida';
     }
-
 }
 
 function validaPreta() {
@@ -25,7 +24,7 @@ function validaPreta() {
     //Valida jogada pra frente
     if (pecas[jogada.peca].casa.l <= jogada.casa.l && quantidadeCasasLinha == 1 && quantidadeCasasColuna == 1) {
         if (jogada.casa.l == 7) {
-            pecas[jogada.peca].superDama = true; 
+            pecas[jogada.peca].superDama = true;
         }
         moverPeca();
     } else {

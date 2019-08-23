@@ -47,7 +47,7 @@ function criaPecas() {
     newPeca(3, 2, 'black');
     newPeca(5, 2, 'black');
     newPeca(7, 2, 'black');
-    
+
 
     newPeca(0, 7, 'white');
     newPeca(1, 6, 'white');
@@ -92,8 +92,4 @@ function desenhaPecas(ctx) {
     for (var i = 0; i < 24; i++) {
         drawPeca(ctx, i);
     }
-}
-
-function mostrarJogadasPretas(i) {
-    
 }
