@@ -43,6 +43,11 @@ function criaPecas() {
     newPeca(5, 0, 'black');
     newPeca(6, 1, 'black');
     newPeca(7, 0, 'black');
+    newPeca(1, 2, 'black');
+    newPeca(3, 2, 'black');
+    newPeca(5, 2, 'black');
+    newPeca(7, 2, 'black');
+    
 
     newPeca(0, 7, 'white');
     newPeca(1, 6, 'white');
@@ -52,6 +57,11 @@ function criaPecas() {
     newPeca(5, 6, 'white');
     newPeca(6, 7, 'white');
     newPeca(7, 6, 'white');
+    newPeca(0, 5, 'white');
+    newPeca(2, 5, 'white');
+    newPeca(4, 5, 'white');
+    newPeca(6, 5, 'white');
+
 }
 
 function criaCasas() {
@@ -79,7 +89,7 @@ function desenhaCasas(ctx) {
 }
 
 function desenhaPecas(ctx) {
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 24; i++) {
         drawPeca(ctx, i);
     }
 }

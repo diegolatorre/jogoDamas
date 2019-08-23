@@ -3,7 +3,7 @@ function onClick(ev) {
     var mx = ev.x;
     var my = ev.y;
 
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 24; i++) {
         if (verificaPeca(mx, my, i)) {
             if (pecas[i].cor == jogada.jogador) {
                 jogada.peca = i;
