@@ -7,6 +7,8 @@ function onClick(ev) {
         if (verificaPeca(mx, my, i)) {
             if (pecas[i].cor == jogada.jogador) {
                 jogada.peca = i;
+                jogada.casaOrigem.c = pecas[i].casa.c;
+                jogada.casaOrigem.l = pecas[i].casa.l;
                 jogada.ativo = true;
                 pecas[i].selected = true;
                 console.log(i);

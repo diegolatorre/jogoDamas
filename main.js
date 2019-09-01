@@ -5,7 +5,7 @@ var trocaCor = 0;
 var brancas = [];
 var pretas = [];
 var pecas = [];
-var jogada = { peca: null, casa: { c: null, l: null }, ativo: false, jogador: null }
+var jogada = { peca: null, casa: { c: null, l: null }, casaOrigem: { c: null, l: null }, ativo: false, jogador: null }
 
 function init() {
 
