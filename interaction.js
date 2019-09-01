@@ -1,6 +1,6 @@
 function onClick(ev) {
 
-    var mx = ev.x;
+    var mx = ev.x - ((24*screen.width)/100);
     var my = ev.y;
 
     for (var i = 0; i < 24; i++) {

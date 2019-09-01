@@ -1,5 +1,5 @@
 var tabuleiro = [];
-var x = 10;
+var x = 0;
 var y = 0;
 var trocaCor = 0;
 var brancas = [];
@@ -9,9 +9,6 @@ var jogada = { peca: null, casa: { c: null, l: null }, casaOrigem: { c: null, l:
 var logJogadas = '', countJogadas = 1;
 
 function init() {
-
-    //var ctx = setupCanvas(document.querySelector('canvas'));
-    //var ctx = canvas.getContext('2d');
 
     //ClIQUE DO MOUSE
     canvas.addEventListener('mousedown', onClick, false);

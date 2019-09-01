@@ -73,4 +73,16 @@ function moverPeca() {
 function log() {
     logJogadas += `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
     countJogadas++;
+
+    // Buscar elemento pai
+    var elemento_pai = document.getElementById("jogadas");
+
+    // Criar elemento
+    var titulo = document.createElement('p');
+
+    // Criando o nó de texto de outra forma
+    titulo.textContent = `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
+
+    // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
+    elemento_pai.appendChild(titulo);
 }
