@@ -1,7 +1,7 @@
 function onClick(ev) {
 
     var mx = ev.x - ((24*screen.width)/100);
-    var my = ev.y;
+    var my = ev.y - 100;
 
     for (var i = 0; i < 24; i++) {
         if (verificaPeca(mx, my, i)) {
