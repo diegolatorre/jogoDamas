@@ -1,12 +1,12 @@
 var tabuleiro = [];
-var x = 150;
+var x = 0;
 var y = 0;
 var trocaCor = 0;
 var brancas = [];
 var pretas = [];
 var pecas = [];
 var jogada = { peca: null, casa: { c: null, l: null }, casaOrigem: { c: null, l: null }, ativo: false, jogador: null }
-var logJogadas = '', countJogadas = 1;
+var logJogadas = '', countJogadas = 1, countPecasBrancas = 0, countPecasPretas = 0, countDamasBrancas = 0, countDamasPretas = 0;
 
 function init() {
 
