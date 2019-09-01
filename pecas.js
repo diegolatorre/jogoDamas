@@ -33,6 +33,9 @@ function drawPeca(ctx, i) {
 
 function moverPeca() {
 
+    //preenchendo log das jogadas
+    log();
+
     //limpando a selecao de peca e casa
     pecas[jogada.peca].selected = false;
     tabuleiro[jogada.casa.c][jogada.casa.l].selected = false;
@@ -65,4 +68,9 @@ function moverPeca() {
         jogada.jogador = 'white';
         document.getElementById("jogador").innerHTML = 'white';
     }
+}
+
+function log() {
+    logJogadas += `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
+    countJogadas++;
 }

@@ -11,7 +11,7 @@ function validaBranca() {
         }
         moverPeca();
     } else {
-        document.getElementById("jogador").innerHTML = 'Jogada nao permitida';
+        document.getElementById("jogador").innerHTML = 'Jogada nao permitida, tente outra casa';
     }
 }
 
@@ -28,7 +28,7 @@ function validaPreta() {
         }
         moverPeca();
     } else {
-        document.getElementById("jogador").innerHTML = 'Jogada nao permitida';
+        document.getElementById("jogador").innerHTML = 'Jogada nao permitida, tente outra casa';
     }
 
 
