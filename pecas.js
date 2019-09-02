@@ -28,6 +28,8 @@ function drawPeca(ctx, i) {
     ctx.arc(pecas[i].x, pecas[i].y, pecas[i].r, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.stroke();
+    ctx.fillStyle = 'red';
+    ctx.fillText(`${i}`, pecas[i].x-5, pecas[i].y);
     ctx.closePath();
 }
 
