@@ -1,5 +1,5 @@
 var tabuleiro = [];
-var x = 0;
+var x = 100;
 var y = 0;
 var trocaCor = 0;
 var brancas = [];

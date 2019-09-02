@@ -5,7 +5,7 @@ function Casa(x, y, coluna, linha) {
     this.w = 50;
     this.linha = linha;
     this.coluna = coluna;
-    this.cor = 'brown';
+    this.cor = '#854836';
     this.peca = null;
     this.selected = false;
 }

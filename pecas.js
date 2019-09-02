@@ -63,10 +63,10 @@ function moverPeca() {
     //altera quem é a vez de jogar
     if (jogada.jogador == 'white') {
         jogada.jogador = 'black';
-        document.getElementById("jogador").innerHTML = 'black';
+        document.getElementById("jogador").innerHTML = 'Pretas';
     } else {
         jogada.jogador = 'white';
-        document.getElementById("jogador").innerHTML = 'white';
+        document.getElementById("jogador").innerHTML = 'Brancas';
     }
 }
 

@@ -22,7 +22,7 @@ function onClick(ev) {
 
     for (let c = 0; c < 8; c++) {
         for (let l = 0; l < 8; l++) {
-            tabuleiro[c][l].cor = 'brown';
+            tabuleiro[c][l].cor = '#854836';
         }
     }
 
