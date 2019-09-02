@@ -7,6 +7,9 @@ var pretas = [];
 var pecas = [];
 var jogada = { peca: null, casa: { c: null, l: null }, casaOrigem: { c: null, l: null }, ativo: false, jogador: null }
 var logJogadas = '', countJogadas = 1, countPecasBrancas = 0, countPecasPretas = 0, countDamasBrancas = 0, countDamasPretas = 0;
+var jogadasPossiveis = [];
+var jogadasObrigatorias = [];
+var idJogada = 0;
 
 function init() {
 
@@ -15,8 +18,10 @@ function init() {
 
     criaCasas();
     criaPecas();
-
+    
     jogada.jogador = 'white';
+
+    percorrerPecas();
 
     setInterval(draw, 1000 / 60);
 }
@@ -63,12 +68,12 @@ function criaPecas() {
 }
 
 function criaCasas() {
-    for (let c = 0; c <= 8; c++) {
+    for (let c = 0; c < 8; c++) {
         let coluna = [];
         tabuleiro.push(coluna);
     }
 
-    for (let c = 0; c <= 8; c++) {
+    for (let c = 0; c < 8; c++) {
         y = 0;
         x += 60;
         for (let l = 0; l < 8; l++) {

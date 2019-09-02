@@ -25,7 +25,7 @@ function onClick(ev) {
     }
 
     if (jogada.ativo) {
-        for (let c = 0; c <= 8; c++) {
+        for (let c = 0; c < 8; c++) {
             for (let l = 0; l < 8; l++) {
                 if (verificaCasa(mx, my, c, l) && !tabuleiro[c][l].peca) {
                     tabuleiro[c][l].selected = true;
