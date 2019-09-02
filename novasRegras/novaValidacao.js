@@ -11,27 +11,36 @@ function percorrerPecas() {
                 previsaoJogada.id = idJogada;
 
                 //chamar primeira validação
-                if (diagonalDireita()) {
+                if (diagonalDireitaBranca()) {
                     jogadasPossiveis.push(previsaoJogada);
                 }
 
-                if (diagonalEsquerda()) {
+                if (diagonalEsquerdaBranca()) {
                     jogadasPossiveis.push(previsaoJogada);
                 }
             }
         }
     }
-    /*
-    //PERCORRENDO ARRAY PARA VERIFICAR AS PRETAS
+
     if (jogada.jogador == 'black') {
         for (let i = 0; i < pecas.length; i++) {
             if (pecas[i].cor == 'black') {
+                idJogada++;
+                previsaoJogada = newJogada(idJogada, i);
                 previsaoJogada.peca = i;
-                idjogada++;
+                previsaoJogada.origem.c = pecas[i].casa.c;
+                previsaoJogada.origem.l = pecas[i].casa.l;
                 previsaoJogada.id = idJogada;
+
                 //chamar primeira validação
+                if (diagonalDireitaPreta()) {
+                    jogadasPossiveis.push(previsaoJogada);
+                }
+
+                if (diagonalEsquerdaPreta()) {
+                    jogadasPossiveis.push(previsaoJogada);
+                }
             }
         }
     }
-    */
 }

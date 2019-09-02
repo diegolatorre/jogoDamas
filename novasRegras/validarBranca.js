@@ -1,4 +1,4 @@
-function diagonalDireita() {
+function diagonalDireitaBranca() {
     previsaoJogada.destino.c = previsaoJogada.origem.c + 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
 
@@ -14,7 +14,7 @@ function diagonalDireita() {
     }
 }
 
-function diagonalEsquerda() {
+function diagonalEsquerdaBranca() {
     previsaoJogada.destino.c = previsaoJogada.origem.c - 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
 
