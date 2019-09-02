@@ -12,13 +12,11 @@ function onClick(ev) {
                 jogada.ativo = true;
                 pecas[i].selected = true;
                 console.log(i);
-                //mostrarJogadas(i);
             }
         } else {
             pecas[i].selected = false;
         }
     }
-
 
     for (let c = 0; c < 8; c++) {
         for (let l = 0; l < 8; l++) {
