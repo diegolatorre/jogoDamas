@@ -70,6 +70,9 @@ function moverPeca() {
         jogada.jogador = 'white';
         document.getElementById("jogador").innerHTML = 'Brancas';
     }
+
+    jogadasPossiveis = [];
+    percorrerPecas();
 }
 
 function log() {

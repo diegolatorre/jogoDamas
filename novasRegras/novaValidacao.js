@@ -21,7 +21,7 @@ function percorrerPecas() {
             }
         }
     }
-
+    /*
     //PERCORRENDO ARRAY PARA VERIFICAR AS PRETAS
     if (jogada.jogador == 'black') {
         for (let i = 0; i < pecas.length; i++) {
@@ -33,4 +33,5 @@ function percorrerPecas() {
             }
         }
     }
+    */
 }
