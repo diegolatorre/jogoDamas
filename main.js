@@ -1,17 +1,14 @@
 var tabuleiro = [];
-var x = 10;
+var x = 100;
 var y = 0;
 var trocaCor = 0;
 var brancas = [];
 var pretas = [];
 var pecas = [];
 var jogada = { peca: null, casa: { c: null, l: null }, casaOrigem: { c: null, l: null }, ativo: false, jogador: null }
-var logJogadas = '', countJogadas = 1;
+var logJogadas = '', countJogadas = 1, countPecasBrancas = 0, countPecasPretas = 0, countDamasBrancas = 0, countDamasPretas = 0;
 
 function init() {
-
-    //var ctx = setupCanvas(document.querySelector('canvas'));
-    //var ctx = canvas.getContext('2d');
 
     //ClIQUE DO MOUSE
     canvas.addEventListener('mousedown', onClick, false);

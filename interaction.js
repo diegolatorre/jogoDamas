@@ -1,7 +1,7 @@
 function onClick(ev) {
 
-    var mx = ev.x;
-    var my = ev.y;
+    var mx = ev.x - ((24*screen.width)/100);
+    var my = ev.y - 100;
 
     for (var i = 0; i < 24; i++) {
         if (verificaPeca(mx, my, i)) {
@@ -22,7 +22,7 @@ function onClick(ev) {
 
     for (let c = 0; c < 8; c++) {
         for (let l = 0; l < 8; l++) {
-            tabuleiro[c][l].cor = 'brown';
+            tabuleiro[c][l].cor = '#854836';
         }
     }
 

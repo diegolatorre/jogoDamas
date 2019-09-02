@@ -63,14 +63,54 @@ function moverPeca() {
     //altera quem é a vez de jogar
     if (jogada.jogador == 'white') {
         jogada.jogador = 'black';
-        document.getElementById("jogador").innerHTML = 'black';
+        document.getElementById("jogador").innerHTML = 'Pretas';
     } else {
         jogada.jogador = 'white';
-        document.getElementById("jogador").innerHTML = 'white';
+        document.getElementById("jogador").innerHTML = 'Brancas';
     }
 }
 
 function log() {
     logJogadas += `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
+
+    // Buscar elemento pai
+    var elemento_pai = document.getElementById("jogadas");
+
+    // Criar elemento
+    var titulo = document.createElement('p');
+
+    // Criando o nó de texto de outra forma
+    titulo.innerHTML = `<br />JOGADA N°${countJogadas} <br />Jogador: ${jogada.jogador}<br />Peça n°: ${jogada.peca}<br />Casa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}<br />Casa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
+
+    // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
+    elemento_pai.appendChild(titulo);
+
+    for (let i = 0; i < pecas.length; i++) {
+        if (pecas[i].cor == 'white') {
+            countPecasBrancas++;
+        }
+
+        if (pecas[i].cor == 'black') {
+            countPecasPretas++;
+        }
+
+        if (pecas[i].cor == 'white' && pecas[i].superDama) {
+            countDamasBrancas++;
+        }
+
+        if (pecas[i].cor == 'black' && pecas[i].superDama) {
+            countDamasPretas++;
+        }
+
+    }
+    document.getElementById("qtdPecasPretas").innerHTML = countPecasPretas;
+    document.getElementById("qtdPecasBrancas").innerHTML = countPecasBrancas;
+    document.getElementById("qtdDamasPretas").innerHTML = countDamasPretas;
+    document.getElementById("qtdDamasBrancas").innerHTML = countDamasBrancas;
+
+    countPecasPretas = 0;
+    countPecasBrancas = 0;
+    countDamasPretas = 0;
+    countDamasBrancas = 0;
     countJogadas++;
 }
