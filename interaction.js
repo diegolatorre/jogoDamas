@@ -30,12 +30,8 @@ function onClick(ev) {
                 if (verificaCasa(mx, my, c, l) && !tabuleiro[c][l].peca) {
                     tabuleiro[c][l].selected = true;
                     jogada.casa.c = c;
-                    jogada.casa.l = l;
-                    if(pecas[jogada.peca].cor == 'white'){
-                        validaBranca();
-                    } else {
-                        validaPreta();
-                    }
+                    jogada.casa.l = l;                   
+                    validaJogada();
                     //moverPeca();
                 } else {
                     tabuleiro[c][l].selected = false;

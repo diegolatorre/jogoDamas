@@ -35,7 +35,7 @@ function draw() {
 
     desenhaPecas(ctx);
 
-    computadorJogar();
+    //computadorJogar();
 
 }
 
