@@ -12,6 +12,7 @@ function diagonalDireitaBranca() {
             }
             if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                 console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
+                verificaFrenteDireitaBranco();
             }
         }
     } else {
@@ -33,6 +34,7 @@ function diagonalEsquerdaBranca() {
             }
             if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                 console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
+                verificaFrenteEsquerdaBranco();
             }
         }
     } else {

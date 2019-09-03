@@ -5,7 +5,6 @@ function percorrerPecas() {
             if (pecas[i].cor == 'white') {
 
                 previsaoJogada = newJogada(i);
-                previsaoJogada.peca = i;
                 previsaoJogada.origem.c = pecas[i].casa.c;
                 previsaoJogada.origem.l = pecas[i].casa.l;
 
@@ -14,7 +13,6 @@ function percorrerPecas() {
                 if (diagonalDireitaBranca()) {
                     jogadasPossiveis.push(previsaoJogada);
                     previsaoJogada = newJogada(i);
-                    previsaoJogada.peca = i;
                     previsaoJogada.origem.c = pecas[i].casa.c;
                     previsaoJogada.origem.l = pecas[i].casa.l;
                 }
