@@ -11,7 +11,7 @@ function diagonalDireitaBranca() {
                 return true;
             }
             if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                console.log(`atencao peca ${previsaoJogada.peca} casa preta a sua direita`);
+                console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
             }
         }
     } else {
@@ -32,7 +32,7 @@ function diagonalEsquerdaBranca() {
                 return true;
             }
             if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                console.log(`atencao peca ${previsaoJogada.peca} casa preta a sua esquerda`);
+                console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
             }
         }
     } else {
