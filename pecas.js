@@ -75,6 +75,44 @@ function moverPeca() {
     percorrerPecas();
 }
 
+function moverPecaCOmputador() {
+
+    //preenchendo log das jogadas
+    log();
+
+    //movendo a peca no tabuleiro
+    pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 25;
+    pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 25;
+
+    //limpando na casa antiga o valor da peca
+    tabuleiro[pecas[jogada.peca].casa.c][pecas[jogada.peca].casa.l].peca = null;
+
+    //colocando o valor da nova casa na peca
+    pecas[jogada.peca].casa.c = jogada.casa.c;
+    pecas[jogada.peca].casa.l = jogada.casa.l;
+
+    //colocando o valor da peca na nova casa
+    tabuleiro[jogada.casa.c][jogada.casa.l].peca = jogada.peca;
+
+    //limpando a jogada
+    jogada.peca = null;
+    jogada.casa.c = null;
+    jogada.casa.l = null;
+    jogada.ativo = false;
+
+    //altera quem é a vez de jogar
+    if (jogada.jogador == 'white') {
+        jogada.jogador = 'black';
+        document.getElementById("jogador").innerHTML = 'Pretas';
+    } else {
+        jogada.jogador = 'white';
+        document.getElementById("jogador").innerHTML = 'Brancas';
+    }
+
+    jogadasPossiveis = [];
+    percorrerPecas();
+}
+
 function log() {
     logJogadas += `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
 

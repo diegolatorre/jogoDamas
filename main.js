@@ -18,7 +18,7 @@ function init() {
 
     criaCasas();
     criaPecas();
-    
+
     jogada.jogador = 'white';
 
     percorrerPecas();
@@ -34,6 +34,8 @@ function draw() {
     desenhaCasas(ctx);
 
     desenhaPecas(ctx);
+
+    computadorJogar();
 
 }
 
@@ -94,5 +96,18 @@ function desenhaCasas(ctx) {
 function desenhaPecas(ctx) {
     for (var i = 0; i < 24; i++) {
         drawPeca(ctx, i);
+    }
+}
+
+function computadorJogar() {
+    if (jogada.jogador == 'black') {
+        var jogadaFazer = Math.floor(Math.random() * ((jogadasPossiveis.length - 1) - 0 + 1)) + 0;
+        console.log(jogadaFazer);
+        jogada.casa.c = jogadasPossiveis[jogadaFazer].destino.c;
+        jogada.casa.l = jogadasPossiveis[jogadaFazer].destino.l;
+        jogada.casaOrigem.c = jogadasPossiveis[jogadaFazer].origem.c;
+        jogada.casaOrigem.l = jogadasPossiveis[jogadaFazer].origem.l;
+        jogada.peca = jogadasPossiveis[jogadaFazer].peca;
+        moverPeca();
     }
 }
