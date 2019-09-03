@@ -21,6 +21,7 @@ function percorrerPecas() {
 
                 if (diagonalEsquerdaBranca()) {
                     jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = null;
                 }
             }
         }
@@ -46,6 +47,7 @@ function percorrerPecas() {
 
                 if (diagonalEsquerdaPreta()) {
                     jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = null;
                 }
             }
         }
