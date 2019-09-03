@@ -72,6 +72,7 @@ function moverPeca() {
     }
 
     jogadasPossiveis = [];
+    jogadasObrigatorias = [];
     percorrerPecas();
 }
 
@@ -110,6 +111,7 @@ function moverPecaCOmputador() {
     }
 
     jogadasPossiveis = [];
+    jogadasObrigatorias = [];
     percorrerPecas();
 }
 
