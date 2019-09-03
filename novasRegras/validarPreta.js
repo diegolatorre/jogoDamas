@@ -6,6 +6,8 @@ function diagonalDireitaPreta() {
         if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
                 previsaoJogada.nivel = 0;
+                idJogada++;
+                previsaoJogada.id = idJogada;
                 return true;
             }
         }
@@ -22,6 +24,8 @@ function diagonalEsquerdaPreta() {
         if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
                 previsaoJogada.nivel = 0;
+                idJogada++;
+                previsaoJogada.id = idJogada;
                 return true;
             }
         }

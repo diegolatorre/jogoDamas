@@ -6,6 +6,8 @@ function diagonalDireitaBranca() {
         if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca) {
                 previsaoJogada.nivel = 0;
+                idJogada++;
+                previsaoJogada.id = idJogada;
                 return true;
             }
         }
@@ -22,6 +24,8 @@ function diagonalEsquerdaBranca() {
         if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca) {
                 previsaoJogada.nivel = 0;
+                idJogada++;
+                previsaoJogada.id = idJogada;
                 return true;
             }
         }

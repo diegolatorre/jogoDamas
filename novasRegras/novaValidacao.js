@@ -3,16 +3,20 @@ function percorrerPecas() {
     if (jogada.jogador == 'white') {
         for (let i = 0; i < pecas.length; i++) {
             if (pecas[i].cor == 'white') {
-                idJogada++;
-                previsaoJogada = newJogada(idJogada, i);
+                
+                previsaoJogada = newJogada(i);
                 previsaoJogada.peca = i;
                 previsaoJogada.origem.c = pecas[i].casa.c;
                 previsaoJogada.origem.l = pecas[i].casa.l;
-                previsaoJogada.id = idJogada;
+                
 
                 //chamar primeira validação
                 if (diagonalDireitaBranca()) {
                     jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.peca = i;
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
                 }
 
                 if (diagonalEsquerdaBranca()) {
