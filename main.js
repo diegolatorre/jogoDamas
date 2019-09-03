@@ -95,7 +95,9 @@ function desenhaCasas(ctx) {
 
 function desenhaPecas(ctx) {
     for (var i = 0; i < 24; i++) {
-        drawPeca(ctx, i);
+        if (pecas[i]) {
+            drawPeca(ctx, i);
+        }
     }
 }
 

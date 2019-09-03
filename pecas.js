@@ -29,7 +29,7 @@ function drawPeca(ctx, i) {
     ctx.fill();
     ctx.stroke();
     ctx.fillStyle = 'red';
-    ctx.fillText(`${i}`, pecas[i].x-5, pecas[i].y);
+    ctx.fillText(`${i}`, pecas[i].x - 5, pecas[i].y);
     ctx.closePath();
 }
 
@@ -131,22 +131,23 @@ function log() {
     elemento_pai.appendChild(titulo);
 
     for (let i = 0; i < pecas.length; i++) {
-        if (pecas[i].cor == 'white') {
-            countPecasBrancas++;
-        }
+        if (pecas[i]) {
+            if (pecas[i].cor == 'white') {
+                countPecasBrancas++;
+            }
 
-        if (pecas[i].cor == 'black') {
-            countPecasPretas++;
-        }
+            if (pecas[i].cor == 'black') {
+                countPecasPretas++;
+            }
 
-        if (pecas[i].cor == 'white' && pecas[i].superDama) {
-            countDamasBrancas++;
-        }
+            if (pecas[i].cor == 'white' && pecas[i].superDama) {
+                countDamasBrancas++;
+            }
 
-        if (pecas[i].cor == 'black' && pecas[i].superDama) {
-            countDamasPretas++;
+            if (pecas[i].cor == 'black' && pecas[i].superDama) {
+                countDamasPretas++;
+            }
         }
-
     }
     document.getElementById("qtdPecasPretas").innerHTML = countPecasPretas;
     document.getElementById("qtdPecasBrancas").innerHTML = countPecasBrancas;
