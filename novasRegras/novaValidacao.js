@@ -2,36 +2,56 @@ function percorrerPecas() {
     //PERCORRENDO ARRAY PARA VERIFICAR AS BRANCAS
     if (jogada.jogador == 'white') {
         for (let i = 0; i < pecas.length; i++) {
-            if (pecas[i].cor == 'white') {
-                idJogada++;
-                previsaoJogada = newJogada(idJogada, i);
-                previsaoJogada.peca = i;
-                previsaoJogada.origem.c = pecas[i].casa.c;
-                previsaoJogada.origem.l = pecas[i].casa.l;
-                previsaoJogada.id = idJogada;
+            if (pecas[i]) {
+                if (pecas[i].cor == 'white') {
 
-                //chamar primeira validação
-                if (diagonalDireita()) {
-                    jogadasPossiveis.push(previsaoJogada);
-                }
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
 
-                if (diagonalEsquerda()) {
-                    jogadasPossiveis.push(previsaoJogada);
+
+                    //chamar primeira validação
+                    if (diagonalDireitaBranca()) {
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    }
+
+                    if (diagonalEsquerdaBranca()) {
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = null;
+                    }
                 }
             }
         }
     }
-    /*
-    //PERCORRENDO ARRAY PARA VERIFICAR AS PRETAS
+
     if (jogada.jogador == 'black') {
         for (let i = 0; i < pecas.length; i++) {
-            if (pecas[i].cor == 'black') {
-                previsaoJogada.peca = i;
-                idjogada++;
-                previsaoJogada.id = idJogada;
-                //chamar primeira validação
+            if (pecas[i]) {
+                if (pecas[i].cor == 'black') {
+
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.peca = i;
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
+
+                    //chamar primeira validação
+                    if (diagonalDireitaPreta()) {
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.peca = i;
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    }
+
+                    if (diagonalEsquerdaPreta()) {
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = null;
+                    }
+                }
             }
         }
     }
-    */
 }
