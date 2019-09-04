@@ -4,7 +4,7 @@ function Jogada(peca) {
     this.origem = { c: null, l: null};
     this.destino = { c: null, l: null };
     this.nivel = 0;
-    this.proximaJogada = 0;
+    this.proximaJogada = [];
 }
 
 function newJogada(peca) {

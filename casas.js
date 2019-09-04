@@ -16,10 +16,6 @@ function newCasa(x, y, c, l) {
 }
 
 function drawCasa(ctx, c, l) {
-    if (tabuleiro[c][l].selected) {
-        ctx.fillStyle = 'blue';
-    } else {
-        ctx.fillStyle = tabuleiro[c][l].cor;
-    }
+    ctx.fillStyle = tabuleiro[c][l].cor;
     ctx.fillRect(tabuleiro[c][l].x, tabuleiro[c][l].y, tabuleiro[c][l].h, tabuleiro[c][l].w);
 }
