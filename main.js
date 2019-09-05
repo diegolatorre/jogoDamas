@@ -111,6 +111,8 @@ function computadorJogar() {
             jogada.casaOrigem.c = jogadasObrigatorias[jogadaFazer].origem.c;
             jogada.casaOrigem.l = jogadasObrigatorias[jogadaFazer].origem.l;
             jogada.peca = jogadasObrigatorias[jogadaFazer].peca;
+            tabuleiro[pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.c][pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.l].peca = null;
+            pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar] = null;
             moverPeca();
         } else {
             var jogadaFazer = Math.floor(Math.random() * ((jogadasPossiveis.length - 1) - 0 + 1)) + 0;
