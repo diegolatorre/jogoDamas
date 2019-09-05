@@ -1,7 +1,7 @@
 function verificaFrenteDireitaBranco() {
     if (typeof tabuleiro[previsaoJogada.destino.c + 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1] !== 'undefined') {
-            if (!tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1].peca) {
+            if (!tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1].peca && tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1].peca !== 0) {
                 previsaoJogada.pecaEliminar = tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca;
                 previsaoJogada.destino.c += 1;
                 previsaoJogada.destino.l -= 1;
@@ -18,7 +18,7 @@ function verificaFrenteDireitaBranco() {
 function verificaFrenteEsquerdaBranco() {
     if (typeof tabuleiro[previsaoJogada.destino.c - 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1] !== 'undefined') {
-            if (!tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1].peca) {
+            if (!tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1].peca && tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1].peca !== 0) {
                 previsaoJogada.pecaEliminar = tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca;
                 previsaoJogada.destino.c -= 1;
                 previsaoJogada.destino.l -= 1;
