@@ -130,6 +130,7 @@ function log() {
     // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
     elemento_pai.appendChild(titulo);
 
+    /*
     for (let i = 0; i < pecas.length; i++) {
         if (pecas[i]) {
             if (pecas[i].cor == 'white') {
@@ -158,5 +159,6 @@ function log() {
     countPecasBrancas = 0;
     countDamasPretas = 0;
     countDamasBrancas = 0;
+    */
     countJogadas++;
 }

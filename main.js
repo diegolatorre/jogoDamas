@@ -1,4 +1,5 @@
 var tabuleiro = [];
+var finalJogo = false;
 var x = 100;
 var y = 0;
 var trocaCor = 0;
@@ -28,14 +29,34 @@ function init() {
 
 function draw() {
 
-    var ctx = setupCanvas(document.querySelector('canvas'));
-    var ctx = canvas.getContext('2d');
+    for (let i = 0; i < pecas.length; i++) {
+        if (pecas[i]) {
+            if (pecas[i].cor == 'white') {
+                countPecasBrancas++;
+            }
 
-    desenhaCasas(ctx);
+            if (pecas[i].cor == 'black') {
+                countPecasPretas++;
+            }
+        }
+    }
 
-    desenhaPecas(ctx);
+    if (countPecasBrancas == 0 | countPecasPretas == 0) {
+        finalJogo = true;
+    }
 
-    computadorJogar();
+    if (!finalJogo) {
+        var ctx = setupCanvas(document.querySelector('canvas'));
+        var ctx = canvas.getContext('2d');
+
+        desenhaCasas(ctx);
+
+        desenhaPecas(ctx);
+
+        computadorJogar();
+    } else {
+        jogoFinalizado();
+    }
 
 }
 
@@ -124,5 +145,15 @@ function computadorJogar() {
             jogada.peca = jogadasPossiveis[jogadaFazer].peca;
             moverPeca();
         }
+    }
+}
+
+function jogoFinalizado() {
+    if (countDamasBrancas == 0) {
+        document.getElementById("jogador").innerHTML = 'Pretas Venceu';
+    }
+
+    if (countDamasPretas == 0) {
+        document.getElementById("jogador").innerHTML = 'Brancas Venceu';
     }
 }
