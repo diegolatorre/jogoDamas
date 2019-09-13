@@ -43,6 +43,9 @@ function draw() {
 
     if (countPecasBrancas == 0 | countPecasPretas == 0) {
         finalJogo = true;
+    } else {
+        countPecasBrancas = 0;
+        countPecasPretas = 0;
     }
 
     if (!finalJogo) {
@@ -149,11 +152,11 @@ function computadorJogar() {
 }
 
 function jogoFinalizado() {
-    if (countDamasBrancas == 0) {
+    if (countPecasBrancas == 0) {
         document.getElementById("jogador").innerHTML = 'Pretas Venceu';
     }
 
-    if (countDamasPretas == 0) {
+    if (countPecasPretas == 0) {
         document.getElementById("jogador").innerHTML = 'Brancas Venceu';
     }
 }

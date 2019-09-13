@@ -1,4 +1,4 @@
-function verificaFrenteDireitaBranco() {
+function verificaSubirDireita() {
     if (typeof tabuleiro[previsaoJogada.destino.c + 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1].peca && tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l - 1].peca !== 0) {
@@ -7,15 +7,13 @@ function verificaFrenteDireitaBranco() {
                 previsaoJogada.destino.l -= 1;
                 jogadasObrigatorias.push(previsaoJogada);
                 previsaoJogada = newJogada(previsaoJogada.peca);
-                previsaoJogada.origem.c = pecas[previsaoJogada.peca].casa.c;
-                previsaoJogada.origem.l = pecas[previsaoJogada.peca].casa.l;
                 console.log(`atencao peca ${previsaoJogada.peca} obrigatorio comer peça a direita`);
             }
         }
     }
 }
 
-function verificaFrenteEsquerdaBranco() {
+function verificaSubirEsquerda() {
     if (typeof tabuleiro[previsaoJogada.destino.c - 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1].peca && tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l - 1].peca !== 0) {
@@ -23,13 +21,14 @@ function verificaFrenteEsquerdaBranco() {
                 previsaoJogada.destino.c -= 1;
                 previsaoJogada.destino.l -= 1;
                 jogadasObrigatorias.push(previsaoJogada);
+                previsaoJogada = newJogada(previsaoJogada.peca);
                 console.log(`atencao peca ${previsaoJogada.peca} obrigatorio comer peça a esquerda`);
             }
         }
     }
 }
 
-function verificaFrenteDireitaPreta() {
+function verificaDescerDireita() {
     if (typeof tabuleiro[previsaoJogada.destino.c - 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l + 1] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c - 1][previsaoJogada.destino.l + 1].peca) {
@@ -38,15 +37,13 @@ function verificaFrenteDireitaPreta() {
                 previsaoJogada.destino.l += 1;
                 jogadasObrigatorias.push(previsaoJogada);
                 previsaoJogada = newJogada(previsaoJogada.peca);
-                previsaoJogada.origem.c = pecas[previsaoJogada.peca].casa.c;
-                previsaoJogada.origem.l = pecas[previsaoJogada.peca].casa.l;
                 console.log(`atencao peca ${previsaoJogada.peca} obrigatorio comer peça a direita`);
             }
         }
     }
 }
 
-function verificaFrenteEsquerdaPreta() {
+function verificaDescerEsquerda() {
     if (typeof tabuleiro[previsaoJogada.destino.c + 1] !== 'undefined') {
         if (typeof tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l + 1] !== 'undefined') {
             if (!tabuleiro[previsaoJogada.destino.c + 1][previsaoJogada.destino.l + 1].peca) {
@@ -54,6 +51,7 @@ function verificaFrenteEsquerdaPreta() {
                 previsaoJogada.destino.c += 1;
                 previsaoJogada.destino.l += 1;
                 jogadasObrigatorias.push(previsaoJogada);
+                previsaoJogada = newJogada(previsaoJogada.peca);
                 console.log(`atencao peca ${previsaoJogada.peca} obrigatorio comer peça a esquerda`);
             }
         }
