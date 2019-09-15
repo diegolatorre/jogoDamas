@@ -11,6 +11,7 @@ var logJogadas = '', countJogadas = 1, countPecasBrancas = 0, countPecasPretas =
 var jogadasPossiveis = [];
 var jogadasObrigatorias = [];
 var idJogada = 0;
+var ultimaPeca = null, ultimoJogador = null;
 
 function init() {
 
@@ -56,7 +57,7 @@ function draw() {
 
         desenhaPecas(ctx);
 
-        //computadorJogar();
+        computadorJogar();
     } else {
         desenhaCasas(ctx);
 

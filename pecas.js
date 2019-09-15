@@ -42,6 +42,9 @@ function moverPeca() {
     pecas[jogada.peca].selected = false;
     tabuleiro[jogada.casa.c][jogada.casa.l].selected = false;
 
+    //colocando a ultimaPeca jogada
+    ultimaPeca = jogada.peca;
+
     //movendo a peca no tabuleiro
     pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 25;
     pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 25;
@@ -62,18 +65,33 @@ function moverPeca() {
     jogada.casa.l = null;
     jogada.ativo = false;
 
-    //altera quem é a vez de jogar
-    if (jogada.jogador == 'white') {
-        jogada.jogador = 'black';
-        document.getElementById("jogador").innerHTML = 'Pretas';
+
+
+    if (jogadasObrigatorias.length > 0) {
+        jogadasPossiveis = [];
+        jogadasObrigatorias = [];
+        percorrerPecas();
     } else {
-        jogada.jogador = 'white';
-        document.getElementById("jogador").innerHTML = 'Brancas';
+        jogadasPossiveis = [];
+        jogadasObrigatorias = [];
     }
 
-    jogadasPossiveis = [];
-    jogadasObrigatorias = [];
-    percorrerPecas();
+    //altera quem é a vez de jogar
+    if (jogadasObrigatorias.length == 0) {
+        if (jogada.jogador == 'white') {
+            jogada.jogador = 'black';
+            document.getElementById("jogador").innerHTML = 'Pretas';
+            jogadasPossiveis = [];
+            jogadasObrigatorias = [];
+            percorrerPecas();
+        } else {
+            jogada.jogador = 'white';
+            document.getElementById("jogador").innerHTML = 'Brancas';
+            jogadasPossiveis = [];
+            jogadasObrigatorias = [];
+            percorrerPecas();
+        }
+    }
 }
 
 function moverPecaCOmputador() {
@@ -101,18 +119,25 @@ function moverPecaCOmputador() {
     jogada.casa.l = null;
     jogada.ativo = false;
 
+
+
     //altera quem é a vez de jogar
-    if (jogada.jogador == 'white') {
-        jogada.jogador = 'black';
-        document.getElementById("jogador").innerHTML = 'Pretas';
-    } else {
-        jogada.jogador = 'white';
-        document.getElementById("jogador").innerHTML = 'Brancas';
+    if (jogadasObrigatorias.length < 0) {
+        if (jogada.jogador == 'white') {
+            jogada.jogador = 'black';
+            document.getElementById("jogador").innerHTML = 'Pretas';
+            jogadasPossiveis = [];
+            jogadasObrigatorias = [];
+            percorrerPecas();
+        } else {
+            jogada.jogador = 'white';
+            document.getElementById("jogador").innerHTML = 'Brancas';
+            jogadasPossiveis = [];
+            jogadasObrigatorias = [];
+            percorrerPecas();
+        }
     }
 
-    jogadasPossiveis = [];
-    jogadasObrigatorias = [];
-    percorrerPecas();
 }
 
 function log() {
