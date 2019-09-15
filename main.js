@@ -48,16 +48,20 @@ function draw() {
         countPecasPretas = 0;
     }
 
-    if (!finalJogo) {
-        var ctx = setupCanvas(document.querySelector('canvas'));
-        var ctx = canvas.getContext('2d');
+    var ctx = setupCanvas(document.querySelector('canvas'));
+    var ctx = canvas.getContext('2d');
 
+    if (!finalJogo) {
         desenhaCasas(ctx);
 
         desenhaPecas(ctx);
 
-        computadorJogar();
+        //computadorJogar();
     } else {
+        desenhaCasas(ctx);
+
+        desenhaPecas(ctx);
+
         jogoFinalizado();
     }
 
