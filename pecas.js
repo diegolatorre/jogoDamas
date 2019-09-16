@@ -65,8 +65,6 @@ function moverPeca() {
     jogada.casa.l = null;
     jogada.ativo = false;
 
-
-
     if (jogadasObrigatorias.length > 0) {
         jogadasPossiveis = [];
         jogadasObrigatorias = [];
@@ -83,12 +81,14 @@ function moverPeca() {
             document.getElementById("jogador").innerHTML = 'Pretas';
             jogadasPossiveis = [];
             jogadasObrigatorias = [];
+            ultimaPeca = null;
             percorrerPecas();
         } else {
             jogada.jogador = 'white';
             document.getElementById("jogador").innerHTML = 'Brancas';
             jogadasPossiveis = [];
             jogadasObrigatorias = [];
+            ultimaPeca = null;
             percorrerPecas();
         }
     }
@@ -119,8 +119,6 @@ function moverPecaCOmputador() {
     jogada.casa.l = null;
     jogada.ativo = false;
 
-
-
     //altera quem é a vez de jogar
     if (jogadasObrigatorias.length < 0) {
         if (jogada.jogador == 'white') {
@@ -128,12 +126,14 @@ function moverPecaCOmputador() {
             document.getElementById("jogador").innerHTML = 'Pretas';
             jogadasPossiveis = [];
             jogadasObrigatorias = [];
+            ultimaPeca = null;
             percorrerPecas();
         } else {
             jogada.jogador = 'white';
             document.getElementById("jogador").innerHTML = 'Brancas';
             jogadasPossiveis = [];
             jogadasObrigatorias = [];
+            ultimaPeca = null;
             percorrerPecas();
         }
     }
