@@ -32,7 +32,11 @@ function percorrerPecas() {
                 if (pecas[i]) {
                     if (pecas[i].cor == 'white') {
 
-                        validaPecas(i);
+                        if (pecas[i].superDama) {
+                            validaPecasDama(i);
+                        } else {
+                            validaPecas(i);
+                        }
 
                     }
                 }
@@ -45,7 +49,11 @@ function percorrerPecas() {
                 if (pecas[i]) {
                     if (pecas[i].cor == 'black') {
 
-                        validaPecas(i);
+                        if (pecas[i].superDama) {
+                            validaPecasDama(i);
+                        } else {
+                            validaPecas(i);
+                        }
 
                     }
                 }
@@ -84,6 +92,40 @@ function validaPecas(i) {
     }
 
     if (diagonalDescerEsquerda()) {
+        jogadasPossiveis.push(previsaoJogada);
+        previsaoJogada = null;
+    }
+}
+
+function validaPecasDama(i) {
+    previsaoJogada = newJogada(i);
+    previsaoJogada.peca = i;
+    previsaoJogada.origem.c = pecas[i].casa.c;
+    previsaoJogada.origem.l = pecas[i].casa.l;
+
+    //chamar primeira validação
+    if (diagonalSubirDireitaDama()) {
+        jogadasPossiveis.push(previsaoJogada);
+        previsaoJogada = newJogada(i);
+        previsaoJogada.origem.c = pecas[i].casa.c;
+        previsaoJogada.origem.l = pecas[i].casa.l;
+    }
+
+    if (diagonalSubirEsquerdaDama()) {
+        jogadasPossiveis.push(previsaoJogada);
+        previsaoJogada = newJogada(i);
+        previsaoJogada.origem.c = pecas[i].casa.c;
+        previsaoJogada.origem.l = pecas[i].casa.l;
+    }
+
+    if (diagonalDescerDireitaDama()) {
+        jogadasPossiveis.push(previsaoJogada);
+        previsaoJogada = newJogada(i);
+        previsaoJogada.origem.c = pecas[i].casa.c;
+        previsaoJogada.origem.l = pecas[i].casa.l;
+    }
+
+    if (diagonalDescerEsquerdaDama()) {
         jogadasPossiveis.push(previsaoJogada);
         previsaoJogada = null;
     }
