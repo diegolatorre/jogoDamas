@@ -12,6 +12,7 @@ var jogadasPossiveis = [];
 var jogadasObrigatorias = [];
 var idJogada = 0;
 var ultimaPeca = null, ultimoJogador = null;
+var escolhaJogador = null;
 
 function init() {
 
@@ -57,7 +58,7 @@ function draw() {
 
         desenhaPecas(ctx);
 
-        computadorJogar();
+        //computadorJogar();
     } else {
         desenhaCasas(ctx);
 
@@ -164,4 +165,18 @@ function jogoFinalizado() {
     if (countPecasPretas == 0) {
         document.getElementById("jogador").innerHTML = 'Brancas Venceu';
     }
+}
+
+function escolhaBranco() {
+    escolhaJogador = 'white';
+    $("#btnBranco").remove();
+    $("#btnPreto").remove();
+    socket.emit('escolhaJogador', escolhaJogador);
+}
+
+function escolhaPreto() {
+    escolhaJogador = 'black';
+    $("#btnBranco").remove();
+    $("#btnPreto").remove();
+    socket.emit('escolhaJogador', escolhaJogador);
 }

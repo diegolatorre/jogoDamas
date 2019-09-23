@@ -36,8 +36,13 @@
         socket.on('pecas', function (pecasServer) {
             pecas = JSON.parse(pecasServer);
         });
-        socket.on('log', function (logServer) {
-            
+        socket.on('escolhaJogador', function (escolhaJogador) {
+            if (escolhaJogador == 'white') {
+                $("#btnBranco").remove();
+            }
+            if (escolhaJogador == 'black') {
+                $("#btnPreto").remove();
+            }
         });
     </script>
     <link rel="stylesheet" type="text/css" href="index.css">
@@ -74,6 +79,9 @@
 
     <div class="info">
     </div>
+
+    <button id="btnBranco" onclick="escolhaBranco()">Branco</button>
+    <button id="btnPreto" onclick="escolhaPreto()">Preto</button>
 
 </body>
 
