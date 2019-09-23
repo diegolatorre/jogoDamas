@@ -16,6 +16,35 @@
     <script src="regras/novaValidacao.js"></script>
     <script src="regras/jogadasObrigatorias.js"></script>
     <script src="regras/validacaoDama.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        const socket = io();
+        socket.on('connect', function () {
+            $(".info").append('Connected with id: ' + socket.id + "<br>");
+            console.log(socket.id);
+            socket.emit('msg', 'entrei ' + socket.id);
+        });
+        socket.on('jogada', function (jogadaServer) {
+            $(".info").append('<br>' + jogadaServer);
+            jogada = JSON.parse(jogadaServer);
+            percorrerPecas();
+        });
+        socket.on('tabuleiro', function (tabuleiroServer) {
+            tabuleiro = JSON.parse(tabuleiroServer);
+        });
+        socket.on('pecas', function (pecasServer) {
+            pecas = JSON.parse(pecasServer);
+        });
+        socket.on('escolhaJogador', function (escolhaJogador) {
+            if (escolhaJogador == 'white') {
+                $("#btnBranco").remove();
+            }
+            if (escolhaJogador == 'black') {
+                $("#btnPreto").remove();
+            }
+        });
+    </script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -31,8 +60,8 @@
         <div class="col-2 col-s-4">
             <a href="https://github.com/diegolatorre/jogoDamas" target="blank"><img src="img/githubLogo.png"
                     alt="Logo GitHub"></a>
-            <a href="http://www.damasciencias.com.br/regras/regras_do_jogo.html" target="blank"><img src="img/regras.png"
-                    alt="Logo GitHub"></a>
+            <a href="http://www.damasciencias.com.br/regras/regras_do_jogo.html" target="blank"><img
+                    src="img/regras.png" alt="Logo GitHub"></a>
         </div>
     </div>
 
@@ -49,11 +78,10 @@
     </div>
 
     <div class="info">
-        <label>Quantidade Pecas Pretas: </label><label id="qtdPecasPretas"></label><br>
-        <label>Quantidade Pecas Brancas: </label><label id="qtdPecasBrancas"></label><br>
-        <label>Quantidade Damas Pretas: </label><label id="qtdDamasPretas"></label><br>
-        <label>Quantidade Damas Brancas: </label><label id="qtdDamasBrancas"></label><br>
     </div>
+
+    <button id="btnBranco" onclick="escolhaBranco()">Branco</button>
+    <button id="btnPreto" onclick="escolhaPreto()">Preto</button>
 
 </body>
 
