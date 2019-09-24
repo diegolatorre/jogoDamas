@@ -4,13 +4,12 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 
 const io = require('socket.io')(http);
-app.use('/', express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/public'));
 
-/*
 app.get('/', (req, res) => {
-    res.sendFile('C:/Users/dflim/Desktop/jogoDamas/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
-*/
+
 
 io.on('connection', (socket) => {
     console.log('new connection', socket.id);
