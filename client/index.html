@@ -32,9 +32,11 @@
         });
         socket.on('tabuleiro', function (tabuleiroServer) {
             tabuleiro = JSON.parse(tabuleiroServer);
+            percorrerPecas();
         });
         socket.on('pecas', function (pecasServer) {
             pecas = JSON.parse(pecasServer);
+            percorrerPecas();
         });
         socket.on('escolhaJogador', function (escolhaJogador) {
             if (escolhaJogador == 'white') {

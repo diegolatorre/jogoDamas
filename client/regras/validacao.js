@@ -6,7 +6,7 @@ function validaJogada() {
                 //pecas[jogadasObrigatorias[i].pecaEliminar].cor = "#f542e0";
                 tabuleiro[pecas[jogadasObrigatorias[i].pecaEliminar].casa.c][pecas[jogadasObrigatorias[i].pecaEliminar].casa.l].peca = null;
                 pecas[jogadasObrigatorias[i].pecaEliminar] = null;
-                superDamaBranca();
+                superDama();
                 moverPeca();
             } else {
                 document.getElementById("jogador").innerHTML = 'Jogadas Obrigatorias a fazer';
@@ -15,7 +15,7 @@ function validaJogada() {
     } else {
         for (let i = 0; i < jogadasPossiveis.length; i++) {
             if (jogada.peca == jogadasPossiveis[i].peca && jogada.casa.c == jogadasPossiveis[i].destino.c && jogada.casa.l == jogadasPossiveis[i].destino.l) {
-                superDamaBranca();
+                superDama();
                 moverPeca();
             } else {
                 document.getElementById("jogador").innerHTML = 'Jogadas a fazer';
@@ -24,9 +24,17 @@ function validaJogada() {
     }
 }
 
-function superDamaBranca() {
-    if (jogada.casa.l == 0) {
-        pecas[jogada.peca].superDama = true;
+function superDama() {
+    if (pecas[jogada.peca].cor == 'white') {
+        if (jogada.casa.l == 0) {
+            pecas[jogada.peca].superDama = true;
+        }
+    }
+
+    if (pecas[jogada.peca].cor == 'black') {
+        if (jogada.casa.l == 7) {
+            pecas[jogada.peca].superDama = true;
+        }
     }
 }
 
@@ -49,7 +57,7 @@ function diagonalDescerDireita(i) {
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
-                    verificaDescerDireita();
+                    verificaDescerDireita(i);
                 }
             }
         } else {
@@ -62,7 +70,7 @@ function diagonalDescerDireita(i) {
             if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined' && (tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca || tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca == 0)) {
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
-                    verificaDescerDireita();
+                    verificaDescerDireita(i);
                 }
             }
         } else {
@@ -91,7 +99,7 @@ function diagonalDescerEsquerda(i) {
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
-                    verificaDescerEsquerda();
+                    verificaDescerEsquerda(i);
                 }
             }
         } else {
@@ -104,7 +112,7 @@ function diagonalDescerEsquerda(i) {
             if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined' && (tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca || tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca == 0)) {
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
-                    verificaDescerEsquerda();
+                    verificaDescerEsquerda(i);
                 }
             }
         } else {
@@ -133,7 +141,7 @@ function diagonalSubirDireita(i) {
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
-                    verificaSubirDireita();
+                    verificaSubirDireita(i);
                 }
             }
         } else {
@@ -146,7 +154,7 @@ function diagonalSubirDireita(i) {
             if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined' && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca) {
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
-                    verificaSubirDireita();
+                    verificaSubirDireita(i);
                 }
             }
         } else {
@@ -174,7 +182,7 @@ function diagonalSubirEsquerda(i) {
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
-                    verificaSubirEsquerda();
+                    verificaSubirEsquerda(i);
                 }
             }
         } else {
@@ -187,7 +195,7 @@ function diagonalSubirEsquerda(i) {
             if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined' && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca) {
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
-                    verificaSubirEsquerda();
+                    verificaSubirEsquerda(i);
                 }
             }
         } else {

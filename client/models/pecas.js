@@ -76,9 +76,9 @@ function moverPeca() {
         alterarVez();
     }
 
-    socket.emit('jogada', JSON.stringify(jogada));
-    socket.emit('pecas', JSON.stringify(pecas));
     socket.emit('tabuleiro', JSON.stringify(tabuleiro));
+    socket.emit('pecas', JSON.stringify(pecas));
+    socket.emit('jogada', JSON.stringify(jogada));
 }
 
 function log() {

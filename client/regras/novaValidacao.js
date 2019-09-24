@@ -1,6 +1,7 @@
 function percorrerPecas() {
     //PERCORRENDO ARRAY PARA VERIFICAR AS BRANCAS
-
+    jogadasObrigatorias = [];
+    jogadasPossiveis = [];
     if (ultimaPeca || ultimaPeca == 0) {
         if (jogada.jogador == 'white') {
             for (let i = 0; i < pecas.length; i++) {

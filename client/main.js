@@ -58,7 +58,7 @@ function draw() {
 
         desenhaPecas(ctx);
 
-        computadorJogar();
+        //computadorJogar();
     } else {
         desenhaCasas(ctx);
 
@@ -144,7 +144,7 @@ function computadorJogar() {
             tabuleiro[pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.c][pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.l].peca = null;
             pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar] = null;
             moverPeca();
-        } else {
+        } else if (jogadasPossiveis.length > 0){
             var jogadaFazer = Math.floor(Math.random() * ((jogadasPossiveis.length - 1) - 0 + 1)) + 0;
             console.log(jogadaFazer);
             jogada.casa.c = jogadasPossiveis[jogadaFazer].destino.c;
@@ -153,6 +153,8 @@ function computadorJogar() {
             jogada.casaOrigem.l = jogadasPossiveis[jogadaFazer].origem.l;
             jogada.peca = jogadasPossiveis[jogadaFazer].peca;
             moverPeca();
+        } else {
+            alterarVez();
         }
     }
 }
