@@ -42,11 +42,16 @@ function onClick(ev) {
 }
 
 function verificaPeca(mx, my, i) {
-    if (mx <= pecas[i].x + pecas[i].r && mx >= pecas[i].x - pecas[i].r && my <= pecas[i].y + pecas[i].r && my >= pecas[i].y - pecas[i].r) {
+    if (mx > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x && mx < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w && my > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y && my < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].h) {
         return true;
     } else {
         return false;
     }
+    /*if (mx <= pecas[i].x + pecas[i].r && mx >= pecas[i].x - pecas[i].r && my <= pecas[i].y + pecas[i].r && my >= pecas[i].y - pecas[i].r) {
+        return true;
+    } else {
+        return false;
+    }*/
 }
 
 function verificaCasa(mx, my, c, l) {
