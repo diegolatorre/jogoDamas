@@ -30,7 +30,7 @@ function superDamaBranca() {
     }
 }
 
-function diagonalDescerDireita() {
+function diagonalDescerDireita(i) {
     previsaoJogada.destino.c = previsaoJogada.origem.c - 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l + 1;
 
@@ -41,7 +41,11 @@ function diagonalDescerDireita() {
                     previsaoJogada.nivel = 0;
                     idJogada++;
                     previsaoJogada.id = idJogada;
-                    return true;
+                    jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
+                    return;
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
@@ -56,7 +60,7 @@ function diagonalDescerDireita() {
     if (pecas[previsaoJogada.peca].cor == 'white') {
         if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
             if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined' && (tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca || tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca == 0)) {
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black' ) {
+                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
                     verificaDescerDireita();
                 }
@@ -68,7 +72,7 @@ function diagonalDescerDireita() {
 }
 
 
-function diagonalDescerEsquerda() {
+function diagonalDescerEsquerda(i) {
     previsaoJogada.destino.c = previsaoJogada.origem.c + 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l + 1;
 
@@ -79,7 +83,11 @@ function diagonalDescerEsquerda() {
                     previsaoJogada.nivel = 0;
                     idJogada++;
                     previsaoJogada.id = idJogada;
-                    return true;
+                    jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
+                    return;
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
@@ -106,7 +114,7 @@ function diagonalDescerEsquerda() {
 }
 
 
-function diagonalSubirDireita() {
+function diagonalSubirDireita(i) {
     previsaoJogada.destino.c = previsaoJogada.origem.c + 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
 
@@ -117,7 +125,11 @@ function diagonalSubirDireita() {
                     previsaoJogada.nivel = 0;
                     idJogada++;
                     previsaoJogada.id = idJogada;
-                    return true;
+                    jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
+                    return;
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
@@ -143,7 +155,7 @@ function diagonalSubirDireita() {
     }
 }
 
-function diagonalSubirEsquerda() {
+function diagonalSubirEsquerda(i) {
     previsaoJogada.destino.c = previsaoJogada.origem.c - 1;
     previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
 
@@ -154,7 +166,11 @@ function diagonalSubirEsquerda() {
                     previsaoJogada.nivel = 0;
                     idJogada++;
                     previsaoJogada.id = idJogada;
-                    return true;
+                    jogadasPossiveis.push(previsaoJogada);
+                    previsaoJogada = newJogada(i);
+                    previsaoJogada.origem.c = pecas[i].casa.c;
+                    previsaoJogada.origem.l = pecas[i].casa.l;
+                    return;
                 }
                 if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                     console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);

@@ -1,173 +1,235 @@
-function diagonalDescerDireitaDama() {
-    previsaoJogada.destino.c = previsaoJogada.origem.c - 1;
-    previsaoJogada.destino.l = previsaoJogada.origem.l + 1;
+function diagonalDescerDireitaDama(i) {
+    var cont = 1;
+    previsaoJogada.destino.c = previsaoJogada.origem.c - cont;
+    previsaoJogada.destino.l = previsaoJogada.origem.l + cont;
 
-    if (pecas[previsaoJogada.peca].cor == 'black') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
+    while ((previsaoJogada.destino.c >= 0 && previsaoJogada.destino.c <= 7) && (previsaoJogada.destino.l >= 0 && previsaoJogada.destino.l <= 7)) {
+        if (pecas[previsaoJogada.peca].cor == 'black') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
+                        verificaDescerDireita();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        return;
+                    }
+
                 }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
-                    verificaDescerDireita();
-                }
+            } else {
+
             }
-        } else {
-            return false;
         }
-    }
 
-    if (pecas[previsaoJogada.peca].cor == 'white') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
+        if (pecas[previsaoJogada.peca].cor == 'white') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
+                        verificaDescerDireita();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        return;
+                    }
                 }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
-                    verificaDescerDireita();
-                }
+            } else {
+
             }
-        } else {
-            return false;
         }
-    }
-}
-
-
-function diagonalDescerEsquerdaDama() {
-    previsaoJogada.destino.c = previsaoJogada.origem.c + 1;
-    previsaoJogada.destino.l = previsaoJogada.origem.l + 1;
-
-    if (pecas[previsaoJogada.peca].cor == 'black') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
-                }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
-                    verificaDescerEsquerda();
-                }
-            }
-        } else {
-            return false;
-        }
-    }
-
-    if (pecas[previsaoJogada.peca].cor == 'white') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
-                }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
-                    verificaDescerEsquerda();
-                }
-            }
-        } else {
-            return false;
-        }
+        cont++;
+        previsaoJogada.destino.c = previsaoJogada.origem.c - cont;
+        previsaoJogada.destino.l = previsaoJogada.origem.l + cont;
     }
 }
 
 
-function diagonalSubirDireitaDama() {
-    previsaoJogada.destino.c = previsaoJogada.origem.c + 1;
-    previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
 
-    if (pecas[previsaoJogada.peca].cor == 'white') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
+
+function diagonalDescerEsquerdaDama(i) {
+    var cont = 1;
+    previsaoJogada.destino.c = previsaoJogada.origem.c + cont;
+    previsaoJogada.destino.l = previsaoJogada.origem.l + cont;
+
+
+    while ((previsaoJogada.destino.c >= 0 && previsaoJogada.destino.c <= 7) && (previsaoJogada.destino.l >= 0 && previsaoJogada.destino.l <= 7)) {
+        if (pecas[previsaoJogada.peca].cor == 'black') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
+                        verificaDescerEsquerda();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        return;
+                    }
                 }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
-                    verificaSubirDireita();
-                }
+            } else {
+
             }
-        } else {
-            return false;
         }
+
+        if (pecas[previsaoJogada.peca].cor == 'white') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
+                        verificaDescerEsquerda();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        return;
+                    }
+                }
+            } else {
+
+            }
+        }
+        cont++;
+        previsaoJogada.destino.c = previsaoJogada.origem.c + cont;
+        previsaoJogada.destino.l = previsaoJogada.origem.l + cont;
     }
 
-    if (pecas[previsaoJogada.peca].cor == 'black') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
+}
+
+
+function diagonalSubirDireitaDama(i) {
+    var cont = 1;
+    previsaoJogada.destino.c = previsaoJogada.origem.c + cont;
+    previsaoJogada.destino.l = previsaoJogada.origem.l - cont;
+
+    while ((previsaoJogada.destino.c >= 0 && previsaoJogada.destino.c <= 7) && (previsaoJogada.destino.l >= 0 && previsaoJogada.destino.l <= 7)) {
+        if (pecas[previsaoJogada.peca].cor == 'white') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
+                        verificaSubirDireita();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        return;
+                    }
                 }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
-                    verificaSubirDireita();
-                }
+            } else {
+
             }
-        } else {
-            return false;
         }
+
+        if (pecas[previsaoJogada.peca].cor == 'black') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                        return;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
+                        verificaSubirDireita();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        return;
+                    }
+                }
+            } else {
+
+            }
+        }
+        cont++;
+        previsaoJogada.destino.c = previsaoJogada.origem.c + cont;
+        previsaoJogada.destino.l = previsaoJogada.origem.l - cont;
     }
 }
 
-function diagonalSubirEsquerdaDama() {
-    previsaoJogada.destino.c = previsaoJogada.origem.c - 1;
-    previsaoJogada.destino.l = previsaoJogada.origem.l - 1;
+function diagonalSubirEsquerdaDama(i) {
+    var cont = 1;
+    previsaoJogada.destino.c = previsaoJogada.origem.c - cont;
+    previsaoJogada.destino.l = previsaoJogada.origem.l - cont;
 
-    if (pecas[previsaoJogada.peca].cor == 'white') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
+    while ((previsaoJogada.destino.c >= 0 && previsaoJogada.destino.c <= 7) && (previsaoJogada.destino.l >= 0 && previsaoJogada.destino.l <= 7)) {
+        if (pecas[previsaoJogada.peca].cor == 'white') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
+                        verificaSubirEsquerda();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        return;
+                    }
                 }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
-                    verificaSubirEsquerda();
-                }
-            }
-        } else {
-            return false;
-        }
-    }
+            } else {
 
-    if (pecas[previsaoJogada.peca].cor == 'black') {
-        if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
-            if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
-                if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
-                    previsaoJogada.nivel = 0;
-                    idJogada++;
-                    previsaoJogada.id = idJogada;
-                    return true;
-                }
-                if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
-                    console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
-                    verificaSubirEsquerda();
-                }
             }
-        } else {
-            return false;
         }
+
+        if (pecas[previsaoJogada.peca].cor == 'black') {
+            if (typeof tabuleiro[previsaoJogada.destino.c] !== 'undefined') {
+                if (typeof tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l] !== 'undefined') {
+                    if (!tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca && tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca !== 0) {
+                        previsaoJogada.nivel = 0;
+                        idJogada++;
+                        previsaoJogada.id = idJogada;
+                        jogadasPossiveis.push(previsaoJogada);
+                        previsaoJogada = newJogada(i);
+                        previsaoJogada.origem.c = pecas[i].casa.c;
+                        previsaoJogada.origem.l = pecas[i].casa.l;
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
+                        console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
+                        verificaSubirEsquerda();
+                    } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
+                        return;
+                    }
+                }
+            } else {
+
+            }
+        }
+        cont++;
+        previsaoJogada.destino.c = previsaoJogada.origem.c - cont;
+        previsaoJogada.destino.l = previsaoJogada.origem.l - cont;
     }
 }

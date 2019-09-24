@@ -70,31 +70,13 @@ function validaPecas(i) {
     previsaoJogada.origem.l = pecas[i].casa.l;
 
     //chamar primeira validação
-    if (diagonalSubirDireita()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalSubirDireita(i);
 
-    if (diagonalSubirEsquerda()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalSubirEsquerda(i);
 
-    if (diagonalDescerDireita()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalDescerDireita(i);
 
-    if (diagonalDescerEsquerda()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = null;
-    }
+    diagonalDescerEsquerda(i);
 }
 
 function validaPecasDama(i) {
@@ -104,29 +86,11 @@ function validaPecasDama(i) {
     previsaoJogada.origem.l = pecas[i].casa.l;
 
     //chamar primeira validação
-    if (diagonalSubirDireitaDama()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalSubirDireitaDama(i);
 
-    if (diagonalSubirEsquerdaDama()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalSubirEsquerdaDama(i);
 
-    if (diagonalDescerDireitaDama()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = newJogada(i);
-        previsaoJogada.origem.c = pecas[i].casa.c;
-        previsaoJogada.origem.l = pecas[i].casa.l;
-    }
+    diagonalDescerDireitaDama(i);
 
-    if (diagonalDescerEsquerdaDama()) {
-        jogadasPossiveis.push(previsaoJogada);
-        previsaoJogada = null;
-    }
+    diagonalDescerEsquerdaDama(i);
 }

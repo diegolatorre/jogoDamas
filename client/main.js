@@ -58,7 +58,7 @@ function draw() {
 
         desenhaPecas(ctx);
 
-        //computadorJogar();
+        computadorJogar();
     } else {
         desenhaCasas(ctx);
 
