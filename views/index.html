@@ -9,6 +9,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/main.js"></script>
+    <script src="/multiplayer.js"></script>
     <script src="/setupCanvas.js"></script>
     <script src="/models/casas.js"></script>
     <script src="/models/pecas.js"></script>
@@ -19,38 +20,6 @@
     <script src="/regras/novaValidacao.js"></script>
     <script src="/regras/jogadasObrigatorias.js"></script>
     <script src="/regras/validacaoDama.js"></script>
-    <script>
-        if (multiplayer) {
-            const socket = io();
-            socket.on('connect', function () {
-                $(".info").append('Connected with id: ' + socket.id + "<br>");
-                console.log(socket.id);
-                socket.emit('msg', 'entrei ' + socket.id);
-            });
-            socket.on('jogada', function (jogadaServer) {
-                $(".info").append('<br>' + jogadaServer);
-                jogada = JSON.parse(jogadaServer);
-                percorrerPecas();
-            });
-            socket.on('tabuleiro', function (tabuleiroServer) {
-                tabuleiro = JSON.parse(tabuleiroServer);
-                percorrerPecas();
-            });
-            socket.on('pecas', function (pecasServer) {
-                pecas = JSON.parse(pecasServer);
-                percorrerPecas();
-            });
-            socket.on('escolhaJogador', function (escolhaJogador) {
-                if (escolhaJogador == 'white') {
-                    $("#btnBranco").remove();
-                }
-                if (escolhaJogador == 'black') {
-                    $("#btnPreto").remove();
-                }
-            });
-        }
-
-    </script>
     <link rel="stylesheet" type="text/css" href="/index.css">
 </head>
 
