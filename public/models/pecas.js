@@ -1,7 +1,7 @@
-function Peca(x, y, c, l, cor) {
+function Peca(x, y, c, l, cor, r) {
     this.x = x;
     this.y = y;
-    this.r = 20;
+    this.r = r;
     this.selected = false;
     this.casa = { c: c, l: l };
     this.cor = cor;
@@ -9,7 +9,15 @@ function Peca(x, y, c, l, cor) {
 }
 
 function newPeca(c, l, cor) {
-    var peca = new Peca(tabuleiro[c][l].x + 32, tabuleiro[c][l].y + 32, c, l, cor);
+    var p = 0;
+    if (screen.width <= 400) {
+        p = tabuleiro[0][0].w / 2;
+        r = (tabuleiro[0][0].w / 2) / 2;
+    } else {
+        p = 32;
+        r = 20;
+    }
+    var peca = new Peca(tabuleiro[c][l].x + p, tabuleiro[c][l].y + p, c, l, cor, r);
     pecas.push(peca);
     tabuleiro[c][l].peca = pecas.indexOf(peca);
 }
@@ -46,8 +54,14 @@ function moverPeca() {
     ultimaPeca = jogada.peca;
 
     //movendo a peca no tabuleiro
-    pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 32;
-    pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 32;
+
+    if (screen.width <= 400) {
+        pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + tabuleiro[jogada.casa.c][jogada.casa.l].w / 2;
+        pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + tabuleiro[jogada.casa.c][jogada.casa.l].h / 2;
+    } else {
+        pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + tabuleiro[jogada.casa.c][jogada.casa.l].w / 2;
+        pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + tabuleiro[jogada.casa.c][jogada.casa.l].h / 2;
+    }
 
     //limpando na casa antiga o valor da peca
     tabuleiro[pecas[jogada.peca].casa.c][pecas[jogada.peca].casa.l].peca = null;
