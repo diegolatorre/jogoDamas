@@ -12,30 +12,18 @@ function escolhaPreto() {
     socket.emit('escolhaJogador', escolhaJogador);
 }
 
-$(document).ready(function () {
-
-    $("#btnBranco").click(function (e) {
-        escolhaJogador = 'white';
-        $("#btnBranco").remove();
-        $("#btnPreto").remove();
-        socket.emit('escolhaJogador', escolhaJogador);
-    });
-
-    $("#btnPreto").click(function (e) {
-        escolhaJogador = 'black';
-        $("#btnBranco").remove();
-        $("#btnPreto").remove();
-        socket.emit('escolhaJogador', escolhaJogador);
-    });
-
-});
-
-
 function escolhaUmJogador() {
+    $("#btnUmJogador").remove();
+    $("#btnDoisJogadores").remove();
+    $("#btnMultiplayer").remove();
+    escolhaJogador = 'white';
     umJogador = true;
 }
 
 function escolhaDoisJogadores() {
+    $("#btnUmJogador").remove();
+    $("#btnDoisJogadores").remove();
+    $("#btnMultiplayer").remove();
     doisJogadores = true;
 }
 

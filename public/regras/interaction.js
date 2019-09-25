@@ -1,6 +1,6 @@
 function onClick(ev) {
 
-    if (jogada.jogador == escolhaJogador) {
+    if (jogada.jogador == escolhaJogador || doisJogadores) {
         var mx = ev.x - ((24 * screen.width) / 100);
         var my = ev.y - 100;
 
