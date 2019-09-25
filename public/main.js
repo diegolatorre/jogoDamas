@@ -106,8 +106,6 @@ function criaCasas() {
         let coluna = [];
         tabuleiro.push(coluna);
     }
-    var primeiraC = false;
-    var primeiraL = false;
 
     for (let c = 0; c < 8; c++) {
         if (c == 0) {

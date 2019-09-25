@@ -1,7 +1,7 @@
 function Peca(x, y, c, l, cor) {
     this.x = x;
     this.y = y;
-    this.r = 15;
+    this.r = 20;
     this.selected = false;
     this.casa = { c: c, l: l };
     this.cor = cor;
@@ -9,7 +9,7 @@ function Peca(x, y, c, l, cor) {
 }
 
 function newPeca(c, l, cor) {
-    var peca = new Peca(tabuleiro[c][l].x + 25, tabuleiro[c][l].y + 25, c, l, cor);
+    var peca = new Peca(tabuleiro[c][l].x + 32, tabuleiro[c][l].y + 32, c, l, cor);
     pecas.push(peca);
     tabuleiro[c][l].peca = pecas.indexOf(peca);
 }
