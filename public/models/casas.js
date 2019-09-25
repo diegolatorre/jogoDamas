@@ -12,17 +12,15 @@ function Casa(x, y, coluna, linha, h, w) {
 
 function newCasa(x, y, c, l) {
     var h, w;
-    h = (screen.width / 8) - 10;
-    w = (screen.width / 8) - 10;
     
-    /*if (screen.width <= 400) {
-        h = 27;
-        w = 27;
+    if (screen.width <= 400) {
+        h = (screen.width / 9) - 10;
+        w = (screen.width / 9) - 10;
     } else {
         h = 65;
         w = 65;
-    }*/
-    
+    }
+
     var casa = new Casa(x, y, c, l, h, w);
     tabuleiro[c].push(casa);
 }

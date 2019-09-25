@@ -112,34 +112,29 @@ function criaCasas() {
             y = 0;
             x += 0;
         } else {
-            /*
             if (screen.width <= 400) {
                 y = 0;
-                x += 37;
+                x += (screen.width / 9);
             } else {
                 y = 0;
                 x += 75;
-            }*/
-            y = 0;
-            x += (screen.width / 8);
+            }
         }
         for (let l = 0; l < 8; l++) {
             if (l == 0) {
                 y += 0;
+            } else { }
+            if (screen.width <= 400) {
+                y += (screen.width / 9);
             } else {
-                /*
-                if (screen.width <= 400) {
-                    y += 37;
-                } else {
-                    y += 75;
-                }*/
-                y += (screen.width / 8);
+                y += 75;
             }
             newCasa(x, y, c, l);
         }
 
     }
 }
+
 
 function desenhaCasas(ctx) {
     for (let c = 0; c < 8; c++) {
