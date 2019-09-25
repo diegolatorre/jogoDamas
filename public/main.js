@@ -123,18 +123,15 @@ function criaCasas() {
         for (let l = 0; l < 8; l++) {
             if (l == 0) {
                 y += 0;
-            } else { }
-            if (screen.width <= 400) {
+            } else if (screen.width <= 400) {
                 y += (screen.width / 9);
             } else {
                 y += 75;
             }
             newCasa(x, y, c, l);
         }
-
     }
 }
-
 
 function desenhaCasas(ctx) {
     for (let c = 0; c < 8; c++) {
