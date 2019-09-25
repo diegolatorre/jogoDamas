@@ -1,8 +1,8 @@
 function Casa(x, y, coluna, linha) {
     this.x = x;
     this.y = y;
-    this.h = 50;
-    this.w = 50;
+    this.h = 65;
+    this.w = 65;
     this.linha = linha;
     this.coluna = coluna;
     this.cor = '#854836';
