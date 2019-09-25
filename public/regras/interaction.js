@@ -2,8 +2,8 @@ function onClick(ev) {
 
     if (jogada.jogador == escolhaJogador || doisJogadores) {
         console.log(ev.x);
-        var mx = ev.x - ((24 * screen.width) / 100);
-        var my = ev.y - 100;
+        var mx = ev.x - canvas.offsetLeft;
+        var my = ev.y - canvas.offsetTop;
 
         for (var i = 0; i < 24; i++) {
             if (pecas[i]) {

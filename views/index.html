@@ -40,26 +40,28 @@
         </div>
     </div>
 
-    <div class="divLog" id="jogadas">
-        <label>Jogadas:</label>
+    <div class="row">
+        <div class="divJogador col-3 col-s-5">
+            <label id="jogador">White</label>
+        </div>
+
+        <div class="info col-4 col-s-4">
+        </div>
+
+        <div class="menu col-5 col-s-3">
+            <button id="btnUmJogador" onclick="escolhaUmJogador()">Um Jogador</button>
+            <button id="btnDoisJogadores" onclick="escolhaDoisJogadores()">Dois Jogadores</button>
+            <button id="btnMultiplayer" onclick="escolhaMultiplayer()">Multiplayer</button>
+        </div>
+    </div>
+    <div class="row col-12 col-s-12">
+        <div class="divCanvas">
+            <canvas id="canvas"></canvas>
+        </div>
     </div>
 
-    <div class="divCanvas">
-        <canvas id="canvas"></canvas>
-    </div>
 
-    <div class="divJogador">
-        <label id="jogador">White</label>
-    </div>
 
-    <div class="info">
-    </div>
-
-    <div class="menu">
-        <button id="btnUmJogador" onclick="escolhaUmJogador()">Um Jogador</button>
-        <button id="btnDoisJogadores" onclick="escolhaDoisJogadores()">Dois Jogadores</button>
-        <button id="btnMultiplayer" onclick="escolhaMultiplayer()">Multiplayer</button>
-    </div>
 
 
 
