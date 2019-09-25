@@ -11,8 +11,8 @@ var logJogadas = '', countJogadas = 1, countPecasBrancas = 0, countPecasPretas =
 var jogadasPossiveis = [];
 var jogadasObrigatorias = [];
 var idJogada = 0;
-var ultimaPeca = null, ultimoJogador = null;
-var escolhaJogador = null;
+var ultimaPeca = null;
+var umJogador = false, doisJogadores = false, multiplayer = false, escolhaJogador = null;
 
 function init() {
 
@@ -144,7 +144,7 @@ function computadorJogar() {
             tabuleiro[pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.c][pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar].casa.l].peca = null;
             pecas[jogadasObrigatorias[jogadaFazer].pecaEliminar] = null;
             moverPeca();
-        } else if (jogadasPossiveis.length > 0){
+        } else if (jogadasPossiveis.length > 0) {
             var jogadaFazer = Math.floor(Math.random() * ((jogadasPossiveis.length - 1) - 0 + 1)) + 0;
             console.log(jogadaFazer);
             jogada.casa.c = jogadasPossiveis[jogadaFazer].destino.c;
@@ -167,18 +167,4 @@ function jogoFinalizado() {
     if (countPecasPretas == 0) {
         document.getElementById("jogador").innerHTML = 'Brancas Venceu';
     }
-}
-
-function escolhaBranco() {
-    escolhaJogador = 'white';
-    $("#btnBranco").remove();
-    $("#btnPreto").remove();
-    socket.emit('escolhaJogador', escolhaJogador);
-}
-
-function escolhaPreto() {
-    escolhaJogador = 'black';
-    $("#btnBranco").remove();
-    $("#btnPreto").remove();
-    socket.emit('escolhaJogador', escolhaJogador);
 }

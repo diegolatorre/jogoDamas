@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jogo Damas</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/main.js"></script>
     <script src="/setupCanvas.js"></script>
     <script src="/models/casas.js"></script>
     <script src="/models/pecas.js"></script>
     <script src="/models/jogada.js"></script>
     <script src="/regras/interaction.js"></script>
+    <script src="/regras/menu.js"></script>
     <script src="/regras/validacao.js"></script>
     <script src="/regras/novaValidacao.js"></script>
     <script src="/regras/jogadasObrigatorias.js"></script>
     <script src="/regras/validacaoDama.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
         const socket = io();
         socket.on('connect', function () {
@@ -82,8 +83,13 @@
     <div class="info">
     </div>
 
-    <button id="btnBranco" onclick="escolhaBranco()">Branco</button>
-    <button id="btnPreto" onclick="escolhaPreto()">Preto</button>
+    <div class="menu">
+        <button id="btnUmJogador" onclick="escolhaUmJogador()">Um Jogador</button>
+        <button id="btnDoisJogadores" onclick="escolhaDoisJogadores()">Dois Jogadores</button>
+        <button id="btnMultiplayer" onclick="escolhaMultiplayer()">Multiplayer</button>
+    </div>
+
+
 
 </body>
 
