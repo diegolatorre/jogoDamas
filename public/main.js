@@ -112,14 +112,28 @@ function criaCasas() {
             y = 0;
             x += 0;
         } else {
+            /*
+            if (screen.width <= 400) {
+                y = 0;
+                x += 37;
+            } else {
+                y = 0;
+                x += 75;
+            }*/
             y = 0;
-            x += 75;
+            x += (screen.width / 8);
         }
         for (let l = 0; l < 8; l++) {
             if (l == 0) {
                 y += 0;
             } else {
-                y += 75;
+                /*
+                if (screen.width <= 400) {
+                    y += 37;
+                } else {
+                    y += 75;
+                }*/
+                y += (screen.width / 8);
             }
             newCasa(x, y, c, l);
         }

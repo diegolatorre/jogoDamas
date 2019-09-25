@@ -1,8 +1,8 @@
-function Casa(x, y, coluna, linha) {
+function Casa(x, y, coluna, linha, h, w) {
     this.x = x;
     this.y = y;
-    this.h = 65;
-    this.w = 65;
+    this.h = h;
+    this.w = w;
     this.linha = linha;
     this.coluna = coluna;
     this.cor = '#854836';
@@ -11,7 +11,19 @@ function Casa(x, y, coluna, linha) {
 }
 
 function newCasa(x, y, c, l) {
-    var casa = new Casa(x, y, c, l);
+    var h, w;
+    h = (screen.width / 8) - 10;
+    w = (screen.width / 8) - 10;
+    
+    /*if (screen.width <= 400) {
+        h = 27;
+        w = 27;
+    } else {
+        h = 65;
+        w = 65;
+    }*/
+    
+    var casa = new Casa(x, y, c, l, h, w);
     tabuleiro[c].push(casa);
 }
 
