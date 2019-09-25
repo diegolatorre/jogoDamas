@@ -33,11 +33,13 @@ function drawPeca(ctx, i) {
         ctx.lineWidth = 01;
     }
 
-    ctx.arc(pecas[i].x, pecas[i].y, pecas[i].r, 0, 2 * Math.PI, false);
+    //ctx.arc(pecas[i].x, pecas[i].y, pecas[i].r, 0, 2 * Math.PI, false);
+    p = tabuleiro[0][0].w / 2;
+    ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.stroke();
     ctx.fillStyle = 'red';
-    ctx.fillText(`${i}`, pecas[i].x - 5, pecas[i].y);
+    ctx.fillText(`${i}`, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p) - 5, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p);
     ctx.closePath();
 }
 

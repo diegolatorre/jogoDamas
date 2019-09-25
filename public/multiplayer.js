@@ -6,14 +6,26 @@ socket.on('connect', function () {
 });
 socket.on('jogada', function (jogadaServer) {
     if (multiplayer) {
-        $(".info").append('<br>' + jogadaServer);
         jogada = JSON.parse(jogadaServer);
         percorrerPecas();
     }
 });
 socket.on('tabuleiro', function (tabuleiroServer) {
     if (multiplayer) {
-        tabuleiro = JSON.parse(tabuleiroServer);
+        newTabuleiro = JSON.parse(tabuleiroServer);
+        if (newTabuleiro[0][0].w !== tabuleiro[0][0].w) {
+            for (let c = 0; c < 8; c++) {
+                for (let l = 0; l < 8; l++) {
+                    newTabuleiro[c][l].w = tabuleiro[c][l].w;
+                    newTabuleiro[c][l].h = tabuleiro[c][l].h;
+                    newTabuleiro[c][l].x = tabuleiro[c][l].x;
+                    newTabuleiro[c][l].y = tabuleiro[c][l].y;
+                }
+            }
+            tabuleiro = newTabuleiro;
+        } else {
+            tabuleiro = newTabuleiro;
+        }
         percorrerPecas();
     }
 });
