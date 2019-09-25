@@ -1,7 +1,7 @@
 function Peca(x, y, c, l, cor) {
     this.x = x;
     this.y = y;
-    this.r = 15;
+    this.r = 20;
     this.selected = false;
     this.casa = { c: c, l: l };
     this.cor = cor;
@@ -9,7 +9,7 @@ function Peca(x, y, c, l, cor) {
 }
 
 function newPeca(c, l, cor) {
-    var peca = new Peca(tabuleiro[c][l].x + 25, tabuleiro[c][l].y + 25, c, l, cor);
+    var peca = new Peca(tabuleiro[c][l].x + 32, tabuleiro[c][l].y + 32, c, l, cor);
     pecas.push(peca);
     tabuleiro[c][l].peca = pecas.indexOf(peca);
 }
@@ -46,8 +46,8 @@ function moverPeca() {
     ultimaPeca = jogada.peca;
 
     //movendo a peca no tabuleiro
-    pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 25;
-    pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 25;
+    pecas[jogada.peca].x = tabuleiro[jogada.casa.c][jogada.casa.l].x + 32;
+    pecas[jogada.peca].y = tabuleiro[jogada.casa.c][jogada.casa.l].y + 32;
 
     //limpando na casa antiga o valor da peca
     tabuleiro[pecas[jogada.peca].casa.c][pecas[jogada.peca].casa.l].peca = null;
@@ -85,7 +85,7 @@ function moverPeca() {
 }
 
 function log() {
-    logJogadas = `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
+    logJogadas += `\n\nJOGADA N°${countJogadas} \nJogador: ${jogada.jogador}\nPeça n°: ${jogada.peca}\nCasa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}\nCasa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`;
 
     /*
     // Buscar elemento pai
@@ -100,7 +100,7 @@ function log() {
     // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
     elemento_pai.appendChild(titulo);
     */
-    $(".divLog").append(`<br><br>JOGADA N°${countJogadas} <br>Jogador: ${jogada.jogador}<br>Peça n°: ${jogada.peca}<br>Casa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}<br>Casa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`);
+    //$(".divLog").append(`<br><br>JOGADA N°${countJogadas} <br>Jogador: ${jogada.jogador}<br>Peça n°: ${jogada.peca}<br>Casa Origem: coluna: ${jogada.casaOrigem.c} linha: ${jogada.casaOrigem.l}<br>Casa destino: coluna: ${jogada.casa.c} linha: ${jogada.casa.l}`);
 
     countJogadas++;
 }

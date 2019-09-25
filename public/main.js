@@ -1,6 +1,6 @@
 var tabuleiro = [];
 var finalJogo = false;
-var x = 100;
+var x = 0;
 var y = 0;
 var trocaCor = 0;
 var brancas = [];
@@ -108,12 +108,22 @@ function criaCasas() {
     }
 
     for (let c = 0; c < 8; c++) {
-        y = 0;
-        x += 60;
+        if (c == 0) {
+            y = 0;
+            x += 0;
+        } else {
+            y = 0;
+            x += 75;
+        }
         for (let l = 0; l < 8; l++) {
-            y += 60;
+            if (l == 0) {
+                y += 0;
+            } else {
+                y += 75;
+            }
             newCasa(x, y, c, l);
         }
+
     }
 }
 
