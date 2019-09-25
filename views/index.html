@@ -8,6 +8,10 @@
     <title>Jogo Damas</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="/main.js"></script>
     <script src="/multiplayer.js"></script>
     <script src="/setupCanvas.js"></script>
@@ -25,53 +29,73 @@
 
 <body onload="init();">
 
-    <div class="row header">
-        <div class="col-3 col-s-5">
-            <img src="img/logoUnifaj.png">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="https://www.faj.br/"><img src="img/logoUnifaj.png"></a>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:3000/">Reiniciar</a> <span
+                        class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/diegolatorre/jogoDamas">GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://www.damasciencias.com.br/regras/regras_do_jogo.html">Regras</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        LinkedIn
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://www.linkedin.com/in/diegolatorrelima/">Diego La Torre</a>
+                        <a class="dropdown-item"
+                            href="https://www.linkedin.com/in/nelson-nedis-da-silva-junior-683685173/">Nelson Silva</a>
+                        <a class="dropdown-item" href="https://www.linkedin.com/in/bueno-tales/">Tales Bueno</a>
+                    </div>
+                </li>
+
+
+            </ul>
         </div>
-        <div class="col-9 col-s-7">
-            <h1>Jogo de Damas</h1>
+    </nav>
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menu col-sm-6">
+                <button id="btnUmJogador" onclick="escolhaUmJogador()">Um Jogador</button>
+                <button id="btnDoisJogadores" onclick="escolhaDoisJogadores()">Dois Jogadores</button>
+                <button id="btnMultiplayer" onclick="escolhaMultiplayer()">Multiplayer</button>
+            </div>
+
+
+            <div class="divJogador col-sm-4">
+                <label id="jogador">White</label>
+            </div>
+
+            <div class="info col-sm-2">
+
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="menu col-3 col-s-5">
-            <button id="btnUmJogador" onclick="escolhaUmJogador()">Um Jogador</button>
-            <button id="btnDoisJogadores" onclick="escolhaDoisJogadores()">Dois Jogadores</button>
-            <button id="btnMultiplayer" onclick="escolhaMultiplayer()">Multiplayer</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="divCanvas">
+                <canvas id="canvas"></canvas>
+            </div>
         </div>
 
-
-        <div class="divJogador col-5 col-s-3">
-            <label id="jogador">White</label>
-        </div>
-
-        <div class="info col-4 col-s-4">
-
-        </div>
     </div>
-
-
-
-    <div class="row">
-        <div class="divCanvas">
-            <canvas id="canvas"></canvas>
-        </div>
-    </div>
-
-    <div class="row footer">
-        <div class="col-2 col-s-4">
-            <a href="https://github.com/diegolatorre/jogoDamas" target="blank"><img src="img/githubLogo.png"
-                    alt="Logo GitHub"></a>
-            <a href="http://www.damasciencias.com.br/regras/regras_do_jogo.html" target="blank"><img
-                    src="/img/regras.png" alt="Logo GitHub"></a>
-        </div>
-    </div>
-
-
-
-
-
 
 </body>
 
