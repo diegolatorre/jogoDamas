@@ -12,26 +12,27 @@ app.get('/', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('new connection', socket.id);
-    socket.on('msg', (msg) => {
-        console.log(msg);
-        socket.broadcast.emit('msg', socket.id + ' connected');
+    socket.on('jogada', (data) => {
+        socket.broadcast.to(data.to).emit('jogada', data.msg);
     });
-    socket.on('jogada', (jogada) => {
-        //console.log(jogada);
-        socket.broadcast.emit('jogada', jogada);
-    });
-    socket.on('tabuleiro', (tabuleiro) => {
+    socket.on('tabuleiro', (data) => {
         //console.log(tabuleiro);
-        socket.broadcast.emit('tabuleiro', tabuleiro);
+        socket.broadcast.to(data.to).emit('tabuleiro', data.msg);
     });
-    socket.on('pecas', (pecas) => {
+    socket.on('pecas', (data) => {
         //console.log(jogada);
-        socket.broadcast.emit('pecas', pecas);
+        socket.broadcast.to(data.to).emit('pecas', data.msg);
     });
-    socket.on('escolhaJogador', (escolhaJogador) => {
-        //console.log(jogada);
-        socket.broadcast.emit('escolhaJogador', escolhaJogador);
+    socket.on('escolhaJogador', function (data) {
+        console.log(data.to);
+        socket.broadcast.to(data.to).emit('escolhaJogador', data.msg);
+    });
+    socket.on('addToRoom', function (roomName) {
+        socket.join(roomName);
+    });
+
+    socket.on('removeFromRoom', function (roomName) {
+        socket.leave(roomName);
     });
 })
 

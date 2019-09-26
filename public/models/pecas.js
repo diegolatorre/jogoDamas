@@ -122,9 +122,9 @@ function moverPeca() {
     }
 
     if (multiplayer) {
-        socket.emit('tabuleiro', JSON.stringify(tabuleiro));
-        socket.emit('pecas', JSON.stringify(pecas));
-        socket.emit('jogada', JSON.stringify(jogada));
+        socket.emit('tabuleiro', { from: socket.id, to: roomName, msg: JSON.stringify(tabuleiro) });
+        socket.emit('pecas', { from: socket.id, to: roomName, msg: JSON.stringify(pecas) });
+        socket.emit('jogada', { from: socket.id, to: roomName, msg: JSON.stringify(jogada) });
     }
 
 }

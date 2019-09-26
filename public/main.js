@@ -17,6 +17,7 @@ const crownWhite = new Image();
 crownWhite.src = 'img/crownWhite.png';
 const crownBlack = new Image();
 crownBlack.src = 'img/crownBlack.png';
+var roomName = null;
 
 function init() {
 

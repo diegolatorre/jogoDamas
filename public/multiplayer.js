@@ -2,8 +2,6 @@ const socket = io();
 
 socket.on('connect', function () {
     $(".info").append('Connected with id: ' + socket.id + "<br>");
-    console.log(socket.id);
-    socket.emit('msg', 'entrei ' + socket.id);
 });
 
 socket.on('jogada', function (jogadaServer) {
@@ -50,3 +48,5 @@ socket.on('escolhaJogador', function (escolhaJogador) {
         }
     }
 });
+
+
