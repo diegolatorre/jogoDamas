@@ -2,12 +2,13 @@
   height: 600px;
   max-width: 600px;
   margin: auto;
-  padding: 0px;
-  border: solid 2px red
+  padding: 0;
+  
 }
 canvas {
   width: 100%;
   height: 100%;
+  border: solid 2px red
 }
 html {
   font-family: "Lucida Sans",sans-serif
@@ -17,12 +18,18 @@ img {
   width: 80px
 }
 body {
-  background-color: #f5b553
+  background-color: #5f5c58
 }
 .navbar {
-  background-color: #f7f7f7;
-  color: #420000;
+  background-color: #08051b;
+  color: #d6e0e6;
   -webkit-box-shadow: 0 0 16px 1px rgba(0,0,0,.75);
   -moz-box-shadow: 0 0 16px 1px rgba(0,0,0,.75);
   box-shadow: 0 0 16px 1px rgba(0,0,0,.75)
+}
+
+@media only screen and (max-width: 400px) {
+  .divCanvas{
+    height: 345px;
+  }
 }

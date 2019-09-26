@@ -114,7 +114,7 @@ function criaCasas() {
         } else {
             if (screen.width <= 400) {
                 y = 0;
-                x += (screen.width / 9);
+                x += (screen.width / 8.8);
             } else {
                 y = 0;
                 x += 75;
@@ -124,7 +124,7 @@ function criaCasas() {
             if (l == 0) {
                 y += 0;
             } else if (screen.width <= 400) {
-                y += (screen.width / 9);
+                y += (screen.width / 8.8);
             } else {
                 y += 75;
             }

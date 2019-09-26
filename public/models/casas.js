@@ -1,27 +1,33 @@
-function Casa(x, y, coluna, linha, h, w) {
+function Casa(x, y, coluna, linha, h, w, cor) {
     this.x = x;
     this.y = y;
     this.h = h;
     this.w = w;
     this.linha = linha;
     this.coluna = coluna;
-    this.cor = '#854836';
+    this.cor = cor;
     this.peca = null;
     this.selected = false;
 }
 
 function newCasa(x, y, c, l) {
-    var h, w;
+    var h, w, cor;
     
     if (screen.width <= 400) {
-        h = (screen.width / 9) - 10;
-        w = (screen.width / 9) - 10;
+        h = (screen.width / 8.8);
+        w = (screen.width / 8.8);
     } else {
-        h = 65;
-        w = 65;
+        h = 75;
+        w = 75;
     }
 
-    var casa = new Casa(x, y, c, l, h, w);
+    if ((c + l) % 2 == 0){
+        cor = '#4f2523';
+    } else {
+        cor = '#a1795a';
+    }
+
+    var casa = new Casa(x, y, c, l, h, w, cor);
     tabuleiro[c].push(casa);
 }
 
