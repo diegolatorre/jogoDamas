@@ -18,6 +18,7 @@ function diagonalDescerDireitaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
                         verificaDescerDireita(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         return;
                     }
@@ -42,6 +43,7 @@ function diagonalDescerDireitaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua direita`);
                         verificaDescerDireita(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         return;
                     }
@@ -80,6 +82,7 @@ function diagonalDescerEsquerdaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
                         verificaDescerEsquerda(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         return;
                     }
@@ -103,6 +106,7 @@ function diagonalDescerEsquerdaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca branca a sua esquerda`);
                         verificaDescerEsquerda(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         return;
                     }
@@ -139,6 +143,7 @@ function diagonalSubirDireitaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
                         verificaSubirDireita(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         return;
                     }
@@ -162,6 +167,7 @@ function diagonalSubirDireitaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua direita`);
                         verificaSubirDireita(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         return;
                     }
@@ -196,6 +202,7 @@ function diagonalSubirEsquerdaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
                         verificaSubirEsquerda(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         return;
                     }
@@ -219,6 +226,7 @@ function diagonalSubirEsquerdaDama(i) {
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'white') {
                         console.log(`atencao peca ${previsaoJogada.peca} peca preta a sua esquerda`);
                         verificaSubirEsquerda(i);
+                        return;
                     } else if (pecas[tabuleiro[previsaoJogada.destino.c][previsaoJogada.destino.l].peca].cor == 'black') {
                         return;
                     }
