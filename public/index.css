@@ -2,8 +2,7 @@
   height: 600px;
   max-width: 600px;
   margin: auto;
-  padding: 0;
-  
+  padding: 0
 }
 canvas {
   width: 100%;
@@ -27,9 +26,13 @@ body {
   -moz-box-shadow: 0 0 16px 1px rgba(0,0,0,.75);
   box-shadow: 0 0 16px 1px rgba(0,0,0,.75)
 }
-
-@media only screen and (max-width: 400px) {
-  .divCanvas{
-    height: 345px;
+@media only screen and (max-width:400px) {
+  .divCanvas {
+    height: 345px
   }
+}
+.rotate {
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg)
 }

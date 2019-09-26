@@ -25,12 +25,24 @@ function newPeca(c, l, cor) {
 function drawPeca(ctx, i) {
     ctx.beginPath();
 
-    if (pecas[i].selected) {
-        ctx.lineWidth = 10;
-        ctx.fillStyle = 'pink';
+    if (pecas[i].superDama) {
+        if (pecas[i].cor == 'white') {
+            ctx.fillStyle = 'green';
+            ctx.lineWidth = 01;
+        }
+
+        if (pecas[i].cor == 'black') {
+            ctx.fillStyle = 'blue';
+            ctx.lineWidth = 01;
+        }
     } else {
         ctx.fillStyle = pecas[i].cor;
         ctx.lineWidth = 01;
+    }
+
+    if (pecas[i].selected) {
+        ctx.lineWidth = 10;
+        ctx.fillStyle = 'pink';
     }
 
     //ctx.arc(pecas[i].x, pecas[i].y, pecas[i].r, 0, 2 * Math.PI, false);
