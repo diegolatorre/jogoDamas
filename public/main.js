@@ -13,6 +13,10 @@ var jogadasObrigatorias = [];
 var idJogada = 0;
 var ultimaPeca = null;
 var umJogador = false, doisJogadores = false, multiplayer = false, escolhaJogador = null;
+const crownWhite = new Image();
+crownWhite.src = 'img/crownWhite.png';
+const crownBlack = new Image();
+crownBlack.src = 'img/crownBlack.png';
 
 function init() {
 

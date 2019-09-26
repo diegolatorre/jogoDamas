@@ -27,29 +27,46 @@ function drawPeca(ctx, i) {
 
     if (pecas[i].superDama) {
         if (pecas[i].cor == 'white') {
-            ctx.fillStyle = 'green';
+            //ctx.fillStyle = 'green';
+            ctx.fillStyle = pecas[i].cor;
             ctx.lineWidth = 01;
+            p = tabuleiro[0][0].w / 2;
+            ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
+            ctx.fill();
+            ctx.stroke();
+            ctx.drawImage(crownBlack, pecas[i].x, pecas[i].y, 20, 20);
         }
 
         if (pecas[i].cor == 'black') {
-            ctx.fillStyle = 'blue';
+            //ctx.fillStyle = 'blue';
+            ctx.fillStyle = pecas[i].cor;
             ctx.lineWidth = 01;
+            p = tabuleiro[0][0].w / 2;
+            ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
+            ctx.fill();
+            ctx.stroke();
+            ctx.drawImage(crownWhite, pecas[i].x, pecas[i].y, 20, 20);
         }
     } else {
         ctx.fillStyle = pecas[i].cor;
         ctx.lineWidth = 01;
+        p = tabuleiro[0][0].w / 2;
+        ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
+        ctx.fill();
+        ctx.stroke();
     }
 
     if (pecas[i].selected) {
         ctx.lineWidth = 10;
         ctx.fillStyle = 'pink';
+        p = tabuleiro[0][0].w / 2;
+        ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
+        ctx.fill();
+        ctx.stroke();
     }
 
     //ctx.arc(pecas[i].x, pecas[i].y, pecas[i].r, 0, 2 * Math.PI, false);
-    p = tabuleiro[0][0].w / 2;
-    ctx.arc(tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w / 2) / 2, 0, 2 * Math.PI, false);
-    ctx.fill();
-    ctx.stroke();
+
     //ctx.fillStyle = 'red';
     //ctx.fillText(`${i}`, (tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + p) - 5, tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + p);
     ctx.closePath();
