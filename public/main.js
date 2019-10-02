@@ -177,7 +177,7 @@ function computadorJogar() {
             jogada.peca = jogadasPossiveis[jogadaFazer].peca;
             moverPeca();
         } else {
-            alterarVez();
+            jogoFinalizado();
         }
     }
 }
@@ -188,6 +188,14 @@ function jogoFinalizado() {
     }
 
     if (countPecasPretas == 0) {
+        document.getElementById("jogador").innerHTML = 'Brancas Venceu';
+    }
+
+    if (jogada.jogador == 'white') {
+        document.getElementById("jogador").innerHTML = 'Pretas Venceu';
+    }
+
+    if (jogada.jogador == 'black') {
         document.getElementById("jogador").innerHTML = 'Brancas Venceu';
     }
 }

@@ -12,7 +12,7 @@ function validaJogada() {
                 document.getElementById("jogador").innerHTML = 'Jogadas Obrigatorias a fazer';
             }
         }
-    } else {
+    } else if (jogadasPossiveis.length > 0) {
         for (let i = 0; i < jogadasPossiveis.length; i++) {
             if (jogada.peca == jogadasPossiveis[i].peca && jogada.casa.c == jogadasPossiveis[i].destino.c && jogada.casa.l == jogadasPossiveis[i].destino.l) {
                 superDama();
@@ -21,6 +21,8 @@ function validaJogada() {
                 document.getElementById("jogador").innerHTML = 'Jogadas a fazer';
             }
         }
+    } else {
+        jogoFinalizado();
     }
 }
 
