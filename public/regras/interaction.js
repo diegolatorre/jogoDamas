@@ -14,6 +14,7 @@ function onClick(ev) {
                         jogada.casaOrigem.l = pecas[i].casa.l;
                         jogada.ativo = true;
                         pecas[i].selected = true;
+                        socket.emit('pecas', { from: socket.id, to: roomName, msg: JSON.stringify(pecas) });
                         console.log(i);
                     }
                 } else {
