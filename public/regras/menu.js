@@ -9,7 +9,7 @@ function escolhaPreto() {
     escolhaJogador = 'black';
     $("#btnBranco").remove();
     $("#btnPreto").remove();
-    //document.querySelector('canvas').className = "canvas rotate";
+    document.querySelector('canvas').className = "canvas rotate";
     socket.emit('escolhaJogador', {to: roomName, from: socket.id, msg: escolhaJogador});
 }
 

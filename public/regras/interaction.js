@@ -43,11 +43,22 @@ function onClick(ev) {
 }
 
 function verificaPeca(mx, my, i) {
-    if (mx > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x && mx < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w && my > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y && my < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].h) {
-        return true;
+
+    if (escolhaJogador == 'black') {
+        if (mx > tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].x && mx < tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].x + tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].w && my > tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].y && my < tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].y + tabuleiro[7 - pecas[i].casa.c][7 - pecas[i].casa.l].h) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
-        return false;
+        if (mx > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x && mx < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].x + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].w && my > tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y && my < tabuleiro[pecas[i].casa.c][pecas[i].casa.l].y + tabuleiro[pecas[i].casa.c][pecas[i].casa.l].h) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+
     /*if (mx <= pecas[i].x + pecas[i].r && mx >= pecas[i].x - pecas[i].r && my <= pecas[i].y + pecas[i].r && my >= pecas[i].y - pecas[i].r) {
         return true;
     } else {
@@ -56,9 +67,19 @@ function verificaPeca(mx, my, i) {
 }
 
 function verificaCasa(mx, my, c, l) {
-    if (mx > tabuleiro[c][l].x && mx < tabuleiro[c][l].x + tabuleiro[c][l].w && my > tabuleiro[c][l].y && my < tabuleiro[c][l].y + tabuleiro[c][l].h) {
-        return true;
+
+    if (escolhaJogador == 'black') {
+        if (mx > tabuleiro[7 - c][7 - l].x && mx < tabuleiro[7 - c][7 - l].x + tabuleiro[7 - c][7 - l].w && my > tabuleiro[7 - c][7 - l].y && my < tabuleiro[7 - c][7 - l].y + tabuleiro[7 - c][7 - l].h) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
-        return false;
+        if (mx > tabuleiro[c][l].x && mx < tabuleiro[c][l].x + tabuleiro[c][l].w && my > tabuleiro[c][l].y && my < tabuleiro[c][l].y + tabuleiro[c][l].h) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
 }
