@@ -35,7 +35,7 @@ function escolhaMultiplayer() {
     multiplayer = true;
     var r = $('<input type="text" id="socketRoom"></input>');
     $(".menu").append(r);
-    r = $('<button id="btnRoom" onclick="joinRoom()">Botao</button>');
+    r = $('<button id="btnRoom" class="btn btn-primary btn-lg" onclick="joinRoom()">Entrar</button>');
     $(".menu").append(r);
 }
 
@@ -45,8 +45,8 @@ function joinRoom() {
     $(".info").append('Connected to room: ' + roomName + "<br>");
     $("#btnRoom").remove();
     $("#socketRoom").remove();
-    var r = $('<button id="btnPreto" onclick="escolhaPreto()">Preto</button>');
+    var r = $('<button id="btnPreto" class="btn btn-primary btn-lg" onclick="escolhaPreto()">Preto</button>');
     $(".menu").append(r);
-    r = $('<button id="btnBranco" onclick="escolhaBranco()">Branco</button>');
+    r = $('<button id="btnBranco" class="btn btn-primary btn-lg" onclick="escolhaBranco()">Branco</button>');
     $(".menu").append(r);
 }
